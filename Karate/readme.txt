@@ -1,1 +1,1 @@
-Issinryu Karate Website
+Isshinryu Karate Website
