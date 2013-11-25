@@ -1,0 +1,425 @@
+/*
+* Skeleton V1.2
+* Copyright 2011, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 6/20/2012
+*/
+
+@font-face
+{
+font-family:DIN;
+src: url('../fonts/BINDLE.otf');
+}
+@font-face{
+	font-family:ProximaNova;
+	src: url('../fonts/ProximaNova-Regular.otf');
+}
+@font-face{
+	font-family:ProximaNova;
+	src: url('../fonts/ProximaNova-Bold.otf');
+	font-weight:bold;
+}
+
+@font-face {
+    font-family: 'Haas';
+    src: url('../fonts/neuehaasgroteskdisp-bold-webfont.eot');
+    src: url('../fonts/neuehaasgroteskdisp-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/neuehaasgroteskdisp-bold-webfont.woff') format('woff'),
+         url('../fonts/neuehaasgroteskdisp-bold-webfont.ttf') format('truetype'),
+         url('../fonts/neuehaasgroteskdisp-bold-webfont.svg#neuehaasgroteskdispbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'Haas';
+    src: url('../fonts/neuehaasgroteskdisp-regular-webfont.eot');
+    src: url('../fonts/neuehaasgroteskdisp-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/neuehaasgroteskdisp-regular-webfont.woff') format('woff'),
+         url('../fonts/neuehaasgroteskdisp-regular-webfont.ttf') format('truetype'),
+         url('../fonts/neuehaasgroteskdisp-regular-webfont.svg#neuehaasgroteskdispregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'TradeGothic';
+    src: url('../fonts/tradegothicltstd-webfont.eot');
+    src: url('../fonts/tradegothicltstd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/tradegothicltstd-webfont.svg#trade_gothic_lt_stdregular') format('svg'),
+         url('../fonts/tradegothicltstd-webfont.woff') format('woff'),
+         url('../fonts/tradegothicltstd-webfont.ttf') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'TradeGothic';
+    src: url('../fonts/tradegothicltstd-webfont.svg#trade_gothic_lt_stdregular') format('svg');
+  }
+}
+
+/* Table of Content
+==================================================
+	#Site Styles
+	#Page Styles
+	#Media Queries
+	#Font-Face */
+
+/* #Site Styles
+================================================== */
+	.fl_r{
+		float:right;
+	}
+	.fl_l{
+		float:left;
+	}
+	.container{
+		font-family:ProximaNova;
+		margin-top:50px;
+	}
+	.logo-header{
+		width:100%;
+		max-width:700px;
+	}
+	.address{
+
+	}
+	.address h2{
+		font-family:TradeGothic;
+		font-size:22px;
+		line-height:24px;
+		padding:10px;
+		color:#fff;
+		margin:0;
+		float:right;
+		font-weight:bold;
+		text-align:right;
+	}
+	.color{
+		background:#d01f26;
+
+	}
+	.color2{
+		background:#e24046;
+	}
+
+	.main-title{
+		float:left;
+		width:100%;
+		background:#111;
+		font-weight:bold;
+		margin:0;padding:0;
+	}
+	.main-title h1{
+		font-size:16px;
+		margin:0;padding:10px;
+		line-height:16px;
+		color:#fff;
+	}
+	/* Main Navigation */
+	.main-nav{
+		float:left;
+		width:100%;
+		background:#d01f26;
+		font-size:14px;
+		font-weight:bold;
+		text-transform:uppercase;
+
+	}
+	.content{
+		margin-top:20px;
+	}
+	.main-nav ul{
+		float:left;
+		margin:0;padding:0;
+		width:100%;
+	}
+	.main-nav ul li{
+		display:inline;
+	}
+/*	ul#list-nav li{
+		float:left;
+		margin:15px;
+		font-size:16px;
+		font-weight:bold;
+		list-style:none;
+		display:inline;
+	}*/
+	.main-nav li a{
+		float:left;
+		padding:20px;
+		color:#fff;
+		background:#d01f26;
+		text-decoration:none;
+
+	}
+	.main-nav li a:hover{
+		background-color:#bbb;
+	}
+	.main-nav li a.contact{
+		float:right;
+	}
+	.main-nav-2 li{
+		font-size:16px;
+		font-weight:bold;
+		background:#444;
+		padding:20px;
+		margin:0px;
+		list-style:none;
+		display:inline;	}
+	.biopic{
+		padding:0 20px 20px 0;
+	}
+		
+	#list-nav li a{color:#fff; text-decoration:none;}
+	#list-nav-2 li a{color:#fff; text-decoration:none;}
+
+	.data{
+		width:100%;
+		}
+	.data th{
+		font-family:ProximaNova;
+		font-size:16px;
+		color:#fff;
+		text-align:center;
+		padding:10px;
+		border:1px solid #444;
+		background-color:#bbb;
+	}
+	.data th a 			{color:#fff;text-decoration:none;}
+	.data th a:hover 	{color:#444;}
+
+	.data td{
+		font-size:16px;
+		padding:5px;
+		border:1px solid #444;
+	}
+	.data td.firstname{
+	}
+	.data td.student_id{
+		width:10px;
+	}
+	.data td.submitROW
+	.data input[type="submit"]{
+		padding:5px;
+		margin:0px;
+	}
+	.data input[type="text"],.data select{
+		padding:0px;
+		margin:0px 0px;
+	}
+	h2.reg-header{
+		font-size:25px;
+		font-family: 'Droid Sans', sans-serif;
+		background:#222;
+		color:#fff;
+		font-weight:bold;
+		padding:10px 20px;
+	}
+	p.about{
+		margin:10px 0;
+		color:#222;
+		font-size:16px;
+		font-family: 'Droid Sans', sans-serif;
+		line-height:30px;
+		text-align:left;
+		-webkit-font-smoothing: antialiased;
+		text-shadow:none;
+	}
+	span.emphasis{
+		font-weight:bold;
+		font-size:24px;
+		line-height:28px;
+	}
+	.six > img{
+		width:100%;
+	}
+	.data input{
+		width:100%;
+	}
+	.contactbox{
+		width:50%;
+		margin: 20px auto;
+	}
+	.contactbox h3, p{
+		text-align:center;
+	}
+	.contactbox p{
+		font-size:20px;
+		font-weight:bold;
+		text-transform: uppercase;
+	}
+	.contactbox input[type="text"]{
+		color:#888;
+		font-size:24px;
+	}
+	.contactbox textarea{
+		color:#444;
+		font-size:16px;
+	}
+	.contactbox input:focus,.contactbox textarea:focus{
+		border:4px solid #234343;
+	}
+	.contactbox input[type="text"]{
+		width:100%;
+		padding:10px;
+	}
+	.contactbox textarea{
+		width:100%;
+		padding:10px;
+	}
+
+/* #Page Styles
+================================================== */
+
+/*Index*/
+
+.hero{
+	width:100%;
+	background:url('../img/hero.jpg') center;
+	min-height:300px;
+	color:#fff;
+	margin:16px 0;
+}
+.hero > .text{
+	padding-top:120px;
+}
+.hero h1,.hero h2,.hero h3, .hero h4{
+	text-align:center;
+	color:#fff;
+	margin:0px; padding:0px;
+}
+.hero h3{
+	line-height:20px;
+	margin-bottom:20px;
+}
+.hero h4{
+	text-transform:uppercase;
+	font-weight:bold;
+}
+.subhero{
+	width:100%;
+}
+
+.instructors{
+	width:100%;
+}
+#footer{
+	border-top: 5px solid #444;
+	padding:20px;
+}
+#footer img{
+		margin:0 auto;
+		max-width:250px;
+
+}
+.content table{
+	width:100%;
+	}
+.content table tr th{
+	font-size:18px;
+	font-family:Haas,arial;
+	font-weight:bold;
+	text-align:center;
+	background:#434343;
+	color:#fff;
+	padding:10px 0;
+
+}
+.content table tr td{
+	color:#354652;
+	font-size:14px;
+	font-family:TradeGothic,arial;
+	-webkit-font-smoothing: antialiased;
+	font-weight:normal;
+	text-align:center;
+	padding:10px 0;
+	letter-spacing:normal;
+}
+.content table tr th a{
+	color:#fff;
+}
+.content table tr th a:hover{
+	color:#888;
+}
+
+.top-bar{
+	border-bottom:4px solid #ebebeb;
+	padding:10px;
+	margin-bottom:20px;
+}
+.top-bar ul{
+	margin:0;
+	text-align:right;
+}
+.top-bar ul li{
+	display:inline;
+}
+
+.login{
+	padding:20px;
+	background-color:#fff;
+}
+
+.login input[type="password"],.login input[type="text"]{
+	width:100%;
+}
+.login input{
+	padding:8px;
+	background:#F9F9F9;;
+	border: solid 1px #c4c7cb;
+	border-radius:3px;
+	box-shadow: inset 0px 1px 1px #e0e4e9;
+	outline:none;
+}
+
+/* #Media Queries
+================================================== */
+
+	/* Smaller than standard 960 (devices and browsers) */
+	@media only screen and (max-width: 959px) {
+	}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 959px) {}
+
+	/* All Mobile Sizes (devices and browser) */
+	@media only screen and (max-width: 767px) {
+			ul#list-nav li{font-size:12px;}
+	}
+
+	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+	@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 479px) {}
+
+
+/* #Font-Face
+================================================== */
+/* 	This is the proper syntax for an @font-face file
+		Just create a "fonts" folder at the root,
+		copy your FontName into code below and remove
+		comment brackets */
+
+/*	@font-face {
+	    font-family: 'FontName';
+	    src: url('../fonts/FontName.eot');
+	    src: url('../fonts/FontName.eot?iefix') format('eot'),
+	         url('../fonts/FontName.woff') format('woff'),
+	         url('../fonts/FontName.ttf') format('truetype'),
+	         url('../fonts/FontName.svg#webfontZam02nTh') format('svg');
+	    font-weight: normal;
+	    font-style: normal; }
+*/
