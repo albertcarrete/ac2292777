@@ -80,6 +80,20 @@
 	},
 	"file_history":
 	[
+		"/Applications/AMPPS/www/ac2292777/Karate/edit_user.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/delete_user.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/css/base.css",
+		"/Applications/AMPPS/www/ac2292777/Karate/view_contacts.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/view_users.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/nav-admin.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/login_page.inc.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/login_functions.inc.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/about.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/index.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/footer.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/header.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/css/layout.css",
+		"/Applications/AMPPS/www/ac2292777/Karate/contact.php",
 		"/C/xampp/htdocs/issinryu-v3/css/layout.css",
 		"/C/xampp/htdocs/issinryu-v3/contact.php",
 		"/C/xampp/htdocs/issinryu-v3/bio.php",
@@ -193,21 +207,7 @@
 		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/ACarrete_JavascriptBlackJack/signOutSuccess.html",
 		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/ACarrete_JavascriptBlackJack/loginSuccess.html",
 		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/ACarrete_JavascriptBlackJack/login.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/ACarrete_JavascriptBlackJack/index.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/ACarrete_JavascriptBlackJack/createAdminSuccessful.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/ACarrete_JavascriptBlackJack/blackjack.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Downloaded/Chapter4Snippet7.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/ACarrete_Snippets/AC_CH5S1.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/ACarrete_Snippets/AC_CH5S2.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/ACarrete_Snippets/AC_CH5S3.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/ACarrete_Snippets/AC_CH5S4",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/ACarrete_Snippets/AC_CH5S4.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/ACarrete_Snippets/AC_CH5S5.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/ACarrete_Snippets/AC_CH5S6.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/ACarrete_Snippets/AC_CH5S7.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/ACarrete_Snippets/AC_CH5S8.html",
-		"/C/Users/Albert/Downloads/examples/examples/14.01.invoke.js",
-		"/C/Users/Albert/Downloads/examples/examples/13.05.onLoad.js"
+		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/ACarrete_JavascriptBlackJack/index.html"
 	],
 	"find":
 	{
@@ -225,6 +225,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"body",
+			"top-bar",
+			"address",
+			"color",
+			"color1",
 			"20px",
 			"php",
 			"main-nav",

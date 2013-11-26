@@ -12,13 +12,12 @@
 </head>
 <body>
 
-<?php 
-session_start(); // Start the session. ?>
 <div class="header">
 <div class="row">
 	<div class="grid_12">
 	<div class="top-bar">
 		<ul>
+		<?php session_start(); ?>
 				<?php // Create a login/logout link:
 					if (isset($_SESSION['user_id'])) {
 						echo '<li>Logged in as '.$_SESSION['first_name'].$_SESSION['last_name']."</li>";
