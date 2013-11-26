@@ -2,8 +2,8 @@
 // This script retrieves all the records from the users table.
 // This new version allows the results to be sorted in different ways.
 include ('./header.php'); ?>
-			<div class="sixteen columns content center">
-				<?php include "nav-admin.php"; ?>
+			<div class="content row">
+				<div class="grid_12">
 <?php
 $page_title = 'View the Current Users';
 require ('./mysqli_connect.php');
@@ -119,5 +119,6 @@ if ($pages > 1) {
 	
 } // End of links section.
 	?>
+</div>
 </div>
 <?php include ('./footer.php'); ?>

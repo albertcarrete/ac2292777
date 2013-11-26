@@ -1,6 +1,6 @@
 <?php include ('./header.php'); ?>
-			<div class="sixteen columns content center">
-				<?php include "nav-admin.php"; ?>
+			<div class="row content">
+				<div class="grid_12">
 <?php # Script 9.6 - view_users.php #2
 // This script retrieves all the records from the users table.
 
@@ -51,5 +51,6 @@ if ($num > 0) { // If it ran OK, display the records.
 
 mysqli_close($dbc); // Close the database connection.
 ?>
+</div>
 </div>
 <?php include ('./footer.php'); ?>

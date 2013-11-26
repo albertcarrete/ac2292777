@@ -12,6 +12,9 @@
 	</div>
 </div>
 <div class="row">
+	<div class="grid_12">
+		<h2 class="reg-header">Regular Attending Blackbelts</h2>		
+	</div>
 	<div class="grid_2"><img class="instructors"src="./img/blackbelts/sarnold.png" alt=""></div>
 	<div class="grid_2"><img class="instructors"  src="./img/blackbelts/mpat.png" alt=""></div>
 	<div class="grid_2"><img class="instructors"  src="./img/blackbelts/ttweedie.png" alt=""></div>

@@ -18,16 +18,12 @@ session_start(); // Start the session. ?>
 <div class="grid_12">
 	<div class="top-bar">
 		<ul>
-			<li>
 				<?php // Create a login/logout link:
 					if (isset($_SESSION['user_id'])) {
 						echo '<li>Logged in as '.$_SESSION['first_name'].$_SESSION['last_name']."</li>";
 
 						if(($_SESSION['isAdmin'])>0){
-							echo '<li>You are admin'.$_SESSION['isAdmin'].'</li>';	
-						}
-						else{
-							echo '<li>You are not admin</li>';	
+							echo '<li>You are admin</li>';	
 						}
 
 						echo '<li><a class="contact" href="./logout.php">Logout</a></li>';
@@ -36,7 +32,6 @@ session_start(); // Start the session. ?>
 						echo '<li><a class = "contact" href="./signup.php">Sign Up</a></li>';
 					}
 				?>
-			</li>
 		</ul>
 	</div>
 </div>
@@ -57,7 +52,20 @@ session_start(); // Start the session. ?>
 				<li><a href="./contact.php">Contact</a></li>
 
 			</ul>
-		</div>		
+		</div>
+	<?php 					if(($_SESSION['isAdmin'])>0){ ?>
+
+		<div class="admin-bar">
+			<ul>
+				<li>
+	          		<li><a href="./view_users.php">Users</a></li>			
+			        <li><a href="./view_contacts.php">Contacts</a></li>
+				
+				</li>
+			</ul>
+			
+		</div>	
+<?php } ?>
 	</div>
 
 

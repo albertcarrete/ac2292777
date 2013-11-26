@@ -93,7 +93,7 @@ src: url('../fonts/BINDLE.otf');
 		max-width:700px;
 	}
 	.address{
-
+		margin-bottom:10px;
 	}
 	.address h2{
 		font-family:TradeGothic;
@@ -178,6 +178,34 @@ src: url('../fonts/BINDLE.otf');
 		margin:0px;
 		list-style:none;
 		display:inline;	}
+
+
+	.admin-bar{
+		float:left;
+		width:100%;
+		background:#444;
+		font-size:14px;
+		font-weight:bold;
+		text-transform:uppercase;		
+	}
+	.admin-bar ul{
+		float:left;
+		margin:0;padding:0;
+		width:100%;
+	}
+	.admin-bar ul li{display:inline;}
+	.admin-bar li a{
+		float:left;
+		padding:10px 20px; 
+		color:#fff;
+		text-decoration:none;
+	}
+	.admin-bar li a:hover{
+		background:#d01f26;
+
+	}
+
+
 	.biopic{
 		padding:0 20px 20px 0;
 	}
@@ -229,6 +257,7 @@ src: url('../fonts/BINDLE.otf');
 	}
 	p.about{
 		margin:10px 0;
+		padding:20px;
 		color:#222;
 		font-size:16px;
 		font-family: 'Droid Sans', sans-serif;
@@ -249,14 +278,13 @@ src: url('../fonts/BINDLE.otf');
 		width:100%;
 	}
 	.contactbox{
-		width:50%;
-		margin: 20px auto;
+		text-align:left;
+		margin: 40px auto;
 	}
 	.contactbox h3, p{
-		text-align:center;
 	}
 	.contactbox p{
-		font-size:20px;
+		font-size:16px;
 		font-weight:bold;
 		text-transform: uppercase;
 	}
@@ -271,13 +299,30 @@ src: url('../fonts/BINDLE.otf');
 	.contactbox input:focus,.contactbox textarea:focus{
 		border:4px solid #234343;
 	}
-	.contactbox input[type="text"]{
+	.contactbox input[type="text"],.contactbox input[type="password"]{
 		width:100%;
 		padding:10px;
 	}
 	.contactbox textarea{
 		width:100%;
 		padding:10px;
+	}
+	.contactbox input[type="submit"]{
+		background-color:#d01f26;
+		border:0px;
+		border-radius:3px;
+		padding:10px;
+		font-size:18px;
+		font-weight:bold;
+		color:#fff;
+		cursor:pointer;
+	}
+	.contactbox input[type="submit"]:hover{
+		background-color:#e24046;
+	}
+	.biglogo{
+		margin-top:60px;
+		width:100%;
 	}
 
 /* #Page Styles
@@ -316,8 +361,9 @@ src: url('../fonts/BINDLE.otf');
 	width:100%;
 }
 #footer{
-	border-top: 5px solid #444;
+	border-top: 5px solid #111;
 	padding:20px;
+	background-color:#222;
 }
 #footer img{
 		margin:0 auto;
@@ -392,7 +438,22 @@ src: url('../fonts/BINDLE.otf');
 	}
 
 	/* Tablet Portrait size to standard 960 (devices and browsers) */
-	@media only screen and (min-width: 768px) and (max-width: 959px) {}
+	@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+	.address h2{
+		font-family:TradeGothic;
+		font-size:16px;
+		line-height:20px;
+		padding:10px;
+		color:#fff;
+		margin-bottom:0px;
+		float:right;
+		font-weight:bold;
+		text-align:right;
+	}
+
+
+	}
 
 	/* All Mobile Sizes (devices and browser) */
 	@media only screen and (max-width: 767px) {

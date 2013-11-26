@@ -9,7 +9,8 @@
 </div>
 
 <div class="row">
-	<div class="grid_12">
+	<div class="grid_4">
+		<img class="biglogo" src="./img/large_issinryu.png" alt="">
 <?php
 $page_title = 'Contact';
 $tablename = '47924';
@@ -116,19 +117,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 ?>
+</div>
 
+	<div class="grid_8">
+		<form class = "contactbox" action="contact.php" method = "post">
 
+		<p>First Name <input type="text" name="first_name" size="30" maxlength="60" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>" /></p>	
+		<p>Last Name <input type="text" name="last_name" size="30" maxlength="60" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>" /></p>		
+		<p>Email Address <input type="text" name="email" size="30" maxlength="80" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" /></p>
+		<p>Comments <textarea name="comments" rows="5" cols="30"><?php if (isset($_POST['comments'])) echo $_POST['comments']; ?></textarea></p>
+		<p><input type="submit" name="submit" value="SUBMIT" /></p>
+		<input type="hidden" name="submitted" value="TRUE" />
+		</form>
+	</div>
 
-	<form class = "contactbox" action="contact.php" method = "post">
-	<p>Fill out this form and we'll get back to you as soon as possible.</p>
-
-	<p>First Name <input type="text" name="first_name" size="30" maxlength="60" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>" /></p>	
-	<p>Last Name <input type="text" name="last_name" size="30" maxlength="60" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>" /></p>		
-	<p>Email Address <input type="text" name="email" size="30" maxlength="80" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" /></p>
-	<p>Comments <textarea name="comments" rows="5" cols="30"><?php if (isset($_POST['comments'])) echo $_POST['comments']; ?></textarea></p>
-	<p><input type="submit" name="submit" value="Send!" /></p>
-	<input type="hidden" name="submitted" value="TRUE" />
-	</form>
 </div>
 </div>
 <?php include "./footer.php" ?>

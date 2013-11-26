@@ -26,7 +26,7 @@ if (isset($errors) && !empty($errors)) {
 ?>
 
 <div class="grid_6">
-<form class="login"action="login.php" method="post">
+<form class="contactbox" action="login.php" method="post">
 
 
 <h1>Login</h1>
