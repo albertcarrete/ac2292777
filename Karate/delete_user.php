@@ -2,11 +2,10 @@
 // This page is for deleting a user record.
 // This page is accessed through view_users.php.
 include ('./header.php'); ?>
-	<div class="sixteen columns content center">
-				<?php include "nav-admin.php"; ?>
+	<div class="row content">
+		<div class="grid_12">
 <?php
 $page_title = 'Delete a User';
-include ('./header.php');
 $tablename = '47924';	
 
 echo '<h1>Delete a User</h1>';
@@ -79,5 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 mysqli_close($dbc);
 		
 	echo '</div>';
-	include ('./footer.php'); 
 ?>
+</div>
+
+<?php 	include ('./footer.php'); ?>

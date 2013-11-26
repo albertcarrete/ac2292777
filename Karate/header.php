@@ -14,8 +14,9 @@
 
 <?php 
 session_start(); // Start the session. ?>
+<div class="header">
 <div class="row">
-<div class="grid_12">
+	<div class="grid_12">
 	<div class="top-bar">
 		<ul>
 				<?php // Create a login/logout link:
@@ -72,3 +73,4 @@ session_start(); // Start the session. ?>
 
 
 </div> <!-- end row-->
+</div>

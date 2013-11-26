@@ -127,6 +127,10 @@ src: url('../fonts/BINDLE.otf');
 		line-height:16px;
 		color:#fff;
 	}
+	.header{
+		background-color:#fff;
+	}
+
 	/* Main Navigation */
 	.main-nav{
 		float:left;

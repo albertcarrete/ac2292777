@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>
+<div class="k-bod">
 <div class="row">
 	<div class="grid_12">
 		<div class="hero">
@@ -22,5 +23,5 @@
 		
 	</div>
 </div>
-
+</div>
 <?php include 'footer.php'; ?>
