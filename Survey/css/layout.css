@@ -1,0 +1,319 @@
+/*
+* Skeleton V1.2
+* Copyright 2011, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 6/20/2012
+*/
+@font-face{
+	font-family:'Blender';
+	src: url('../fonts/BlenderPro-Book.otf');
+}
+@font-face{
+	font-family:'TradeGothic';
+	src:url('../fonts/Trade Gothic LT.ttf');
+	font-weight:normal;
+}
+@font-face{
+	font-family:'TradeGothic';
+	src:url('../fonts/TradeGothicLTStd-Bd2.otf');
+	font-weight:bold;
+}
+/* Table of Content
+==================================================
+	#Site Styles
+	#Page Styles
+	#Media Queries
+	#Font-Face */
+
+/* #Site Styles
+================================================== */
+.narrow{
+	margin:150px auto;
+	max-width:400px;
+	margin-top:100px;
+}
+.wide{
+	margin:40px auto 0px auto;
+}
+.top{
+	border-top:1px solid #4b4f50;
+}
+.info-container{
+	border-left:1px solid #3b4f50;
+	border-right:1px solid #3b4f50;
+	border-bottom:1px solid #3b4f50;
+	border-top:1px solid #3b4f50;
+}
+.info-container .head{
+	background-color:#0d1925;
+}
+.info-container .subhead{
+	background-color: #0d141c;
+	padding:0 20px;
+}
+.info-container h1, .info-container h2, .info-container h3,.info-container h4,.info-container h5{
+	font-family:'Blender';
+	text-align:center;
+	color:#9ed3cd;
+	text-transform:uppercase;
+}
+.info-container h1{
+	font-size:50px;
+	line-height:60px;
+	margin-bottom:0px;
+}
+.info-container h3{
+	padding:10px 0;
+	margin:0;
+}
+.info-container p{
+	text-align:center;
+	color:#3c5f63;
+}
+.info-container a.password{
+	font-size:12px;
+	text-transform:uppercase;
+	display:block;
+	padding:10px 0;
+	color:#456c73;
+	float:right;
+}
+.info-container a.account{
+	font-size:12px;
+	font-weight:bold;
+	display:block;
+	padding:10px 0;
+	color:#456c73;
+	float:left;
+	text-transform:uppercase;
+
+}
+.info-container form{
+	padding:10px 30px;
+}
+p.bullet{
+	padding:20px 0 20px 20px;
+	text-align:left;
+}
+.info-container input[type="text"],.info-container input[type="password"]{
+	font-family:'TradeGothic';
+	border:1px solid #3b4f50;
+	font-size:14px;
+	line-height:20px;
+	padding:10px;
+	background-color:#0b0b0b;
+	width:100%;
+	margin:20px 0 0px 0;
+	display:block;
+	color:#9ed3cd;
+	outline:none;
+	letter-spacing:1px;
+}
+.info-container input[type="text"]:focus,.info-container input[type="password"]:focus,.info-container input[type="submit"]:focus{
+	border:1px solid #ff5c40;
+}
+
+.info-container input[type="submit"],a.button{
+	text-align:center;
+	border:none;
+	padding:10px 20px;
+	font-size:14px;
+	color:#89b8b4;
+	display:block;
+	width:50%;
+	margin:20px 0;
+	float:left;
+/*	margin:20px auto;
+*/	background-color:#0d1925;
+	text-transform:uppercase;
+	cursor:pointer;
+	outline:none;
+   -moz-transition: all .2s ease-in;
+    /* WebKit */
+    -webkit-transition: all .2s ease-in;
+    /* Opera */
+    -o-transition: all .2s ease-in;
+    /* Standard */
+    transition: all .2s ease-in;
+}
+.info-container input[type="submit"]:hover{
+	background-color:#ff5c40;
+	color:#fff;
+   -moz-transition: all .2s ease-in;
+    /* WebKit */
+    -webkit-transition: all .2s ease-in;
+    /* Opera */
+    -o-transition: all .2s ease-in;
+    /* Standard */
+    transition: all .2s ease-in;	
+}
+.info-container a:hover{
+	color:#ff5c40;
+	text-decoration:none;
+}
+.info-container table{
+	background-color:transparent;
+}
+.info-container table th{
+	background-color: transparent;
+	font-family:'Blender';
+	font-size:16px;
+	text-align:left;
+	border:none;
+	color:#80d2e0;
+	text-transform:uppercase;
+}
+.info-container table th a{
+	color:#80d2e0;
+}
+.info-container table > a{
+	display:block;
+}
+.info-container table tbody > tr.alt{
+	font-size:14px;
+}
+.info-container table tbody > tr.alt2{
+	background-color:#0d141c;
+	font-size:14px;
+}
+.info-container table tbody tr td{
+	background-color:transparent;
+	border:none;
+	color:#4f7c81;
+}
+.info-container select{
+	-webkit-appearance: none;
+	border:1px solid #4b4f50;
+	font-size:14px;	
+	width:100%;
+	background:#0b0b0b;
+	background-image:none;
+	border-radius:0px;
+	color:#9ed3cd;
+	padding:10px;
+	white-space:normal;
+	cursor:pointer;
+}
+.info-container select option.red{
+	-webkit-appearance: none;
+	background-image:none;
+	background-color:#999;
+	color:blue;
+}
+.info-container textarea{
+	width:100%;
+	display:block;
+	font-size:14px;
+	-webkit-appearance: none;
+	padding:5px;
+	background-color:#0d1925;
+	min-height:100px;
+	border:1px solid #3b4f50;
+	font-family:'TradeGothic';
+	color:#9ed3cd;
+
+}
+.info-container .error{
+	background-color:#ff5c40;
+	color:#fff;
+	padding:10px;
+	margin:5px 30px;
+	font-weight:bold;
+	text-transform:uppercase;
+	font-size:10px;
+}
+
+.survey-meta h5{
+	color:#ecfabf;
+}
+.author-meta{
+	float:left;
+	padding-left:30px;
+}
+.date-meta{
+	float:left;
+	padding-left:30px;
+
+}
+.results{
+	width:100%;
+	padding:20px 0 0 0;
+}
+.results img{
+	margin:30px auto;
+	display:block;
+}
+.result-button{
+	float:left;
+	width:50%;
+	text-align:center;
+	padding:20px 0;
+
+}
+.results a{
+	color:#fff;
+	background-color:#0d1925;
+
+}
+.results a:hover{
+	color:#fff;
+	background-color:#ff5c40;
+
+}
+.bar { width: 99%; border: 1px solid #000; height:20px; }
+.percentage { 	background-color:#3c5f63; height:20px;}
+.bar p{
+	position:absolute;
+	color:#fff;
+	margin:0;
+	padding:0 0 0 20px;
+}
+.profile_picture{
+	width:60%;
+	display:block;
+	margin: 20px auto;
+}
+/* #Media Queries
+================================================== */
+
+	/* Smaller than standard 960 (devices and browsers) */
+	@media only screen and (max-width: 959px) {
+	}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+
+	}
+
+	/* All Mobile Sizes (devices and browser) */
+	@media only screen and (max-width: 767px) {
+
+	}
+
+	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+	@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 479px) {}
+
+
+/* #Font-Face
+================================================== */
+/* 	This is the proper syntax for an @font-face file
+		Just create a "fonts" folder at the root,
+		copy your FontName into code below and remove
+		comment brackets */
+
+/*	@font-face {
+	    font-family: 'FontName';
+	    src: url('../fonts/FontName.eot');
+	    src: url('../fonts/FontName.eot?iefix') format('eot'),
+	         url('../fonts/FontName.woff') format('woff'),
+	         url('../fonts/FontName.ttf') format('truetype'),
+	         url('../fonts/FontName.svg#webfontZam02nTh') format('svg');
+	    font-weight: normal;
+	    font-style: normal; }
+*/
