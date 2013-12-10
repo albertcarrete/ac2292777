@@ -10,7 +10,30 @@
 </head>
 <body>
 
-<?php session_start(); ?>
+<?php
+
+  $page = basename($_SERVER['REQUEST_URI']);
+    if ($page == 'index.php' || $page == "/" || $page == '' || $page=='Survey') {
+		ini_set('session.gc_maxlifetime',5);
+		ini_set('session.gc_probability',1);
+		ini_set('session.max_lifetime',5);
+
+    }
+    else{
+
+    }
+session_start(); ?>
+<?php 
+$debug=false;
+	if($debug == true){
+		echo "<div class = 'debugHUD'>";
+		echo "session.gc_maxlifetime = ".ini_get("session.gc_maxlifetime");
+		echo $_SESSION['username'];
+		echo "</div>";
+	}
+
+?>
+
 <div class="header">
 
 </div>

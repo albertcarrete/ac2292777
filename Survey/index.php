@@ -10,8 +10,31 @@ if (isset($_SESSION['user_id'])) { ?>
 		<div class="grid_12">
 			<div class="info-container wide top">	
 				<div class="head">
+					<div class="logo">
 					<a href="./"><h1>Surveyor</h1></a>
-					<p>Dashboard</p>
+					</div>
+<?php if($_SESSION['isAdmin'] > 0){ ?>
+					<div class="nav admin">
+						<ul>
+							<li><a href="./">Dashboard</a></li>
+							<li><a href="./createsurvey.php">Create Survey</a></li>
+							<li><a href="./my_surveys.php">Edit Surveys</a></li>
+							<li><a href="./my_surveys.php">Edit Users</a></li>
+							<li><a href="./settings.php">Settings</a></li>
+						</ul>
+					</div>
+	<?php }
+	else{ ?>
+					<div class="nav user">
+						<ul>
+							<li><a href="./">Dashboard</a></li>
+							<li><a href="./createsurvey.php">Create Survey</a></li>
+							<li><a href="./my_surveys.php">My Surveys</a></li>
+							<li><a href="./settings.php">Settings</a></li>
+						</ul>
+					</div>
+	<?php } ?>
+					<div class="clear"></div>
 				</div>
 			</div>
 		</div>
@@ -165,16 +188,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	list ($check, $data) = check_login($dbc, $_POST['email'], $_POST['pass']);
 	
 	if ($check) { // OK!
-		ini_set('session.gc_maxlifetime',5);
-		ini_set('session.gc_probability',1);
+
+
 		// Set the session data:
-		session_start();
-		$_SESSION['user_id'] 			= $data['user_id'];
-		$_SESSION['username'] 			= $data['username'];
+		$_SESSION['user_id'] 		= $data['user_id'];
+		$_SESSION['username'] 		= $data['username'];
 		$_SESSION['first_name'] 	= $data['first_name'];
 		$_SESSION['last_name']		= $data['last_name'];
 		$_SESSION['isAdmin'] 		= $data['isAdmin'];
-		$_SESSION['title'] = "Default Title";
+		$_SESSION['title'] 			= "Default Title";
 		// Store the HTTP_USER_AGENT:
 		$_SESSION['agent'] = md5($_SERVER['HTTP_USER_AGENT']);
 

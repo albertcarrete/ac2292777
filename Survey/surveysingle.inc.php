@@ -7,9 +7,9 @@
 
 	<div class="mainselection">
 		<select name="ResponseType" id="input7">
+			<option value="SingleSelect">Single Select</option>
+			<option value="MultiSelect">Multi Select</option>
 			<option value="FreeResponse">Free Response</option>
-			<option value="Dropdown">Dropdown</option>
-			<option value="Checkbox">Checkbox</option>
 		</select>
 	</div>
 	<p>Select a Response Type</p>

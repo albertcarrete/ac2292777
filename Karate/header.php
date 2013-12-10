@@ -1,7 +1,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<title>Issinryu Karate - Backend</title>
+	<title>Issinryu Karate</title>
 	
 	<!-- StyleSheets -->
 	<link rel="stylesheet" href="./css/base.css" type="text/css">
@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="./css/layout.css" type="text/css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="./lib/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="./source/jquery.fancybox.js"></script>
+	<link rel="stylesheet" href="./source/jquery.fancybox.css" type="text/css" media="screen" />
 </head>
 <body>
 
@@ -40,7 +43,7 @@
 	</div>
 	<div class="grid_5 address">
 			<h2 class="color">(760) 568 0961</h2>
-			<h2 class="color2">Whispering Palms Cathedral City<!--  68225 Ramon Road --></h2>	
+			<h2 class="color2">Whispering Palms, Cathedral City<!--  68225 Ramon Road --></h2>	
 	</div>
 	<div class="grid_12">
   		<div class="main-nav">
@@ -48,7 +51,7 @@
 				<li><a href="./index.php">Home</a></li>
 				<li><a href="./about.php">About</a></li>
 				<li><a href="./bio.php">Bio</a></li>
-				<li><a href="./terminology.php">Terms</a></li>
+				<li><a href="./photos.php">Photos</a></li>
 				<li><a href="./contact.php">Contact</a></li>
 
 			</ul>

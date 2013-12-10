@@ -5,9 +5,16 @@
 // Include the header:
 $page_title = 'Login';
 include ('./header.php');?>
-
 <div class="row">
 	<div class="grid_12">
+		<div class="main-title">
+			<h1 class = "fl_l">Login</h1>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="grid_4">
+		<img class="biglogo" src="./img/large_issinryu.png" alt="">
 
 
 <?php
@@ -24,15 +31,11 @@ if (isset($errors) && !empty($errors)) {
 
 // Display the form:
 ?>
-
+</div>
 <div class="grid_6">
 <form class="contactbox" action="login.php" method="post">
-
-
-<h1>Login</h1>
-
-	<p><input type="text" name="email" size="20" maxlength="60" placeholder="Email" /> </p>
-	<p><input type="password" name="pass" size="20" maxlength="20" placeholder="Password" /></p>
+	<p>Email<input type="text" name="email" size="20" maxlength="60" placeholder="" /> </p>
+	<p>Password<input type="password" name="pass" size="20" maxlength="20" placeholder="" /></p>
 	<p><input type="submit" name="submit" value="Login" /></p>
 </form>
 </div>

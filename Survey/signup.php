@@ -137,9 +137,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 			<form action="signup.php" method="post" autocomplete="off">
-				<input type="text" name="username" size="20" maxlength="15" placeholder="Username" autocomplete="off" value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>"/>
+				<input type="text" name="username" size="30" maxlength="15" placeholder="Username" autocomplete="off" value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>"/>
 
-				<input type="text" name="email" size="20" maxlength="30" placeholder="Email" autocomplete="off" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"/>
+				<input type="text" name="email" size="30" maxlength="30" placeholder="Email" autocomplete="off" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"/>
 				<input type="text" name="first_name" size="20" maxlength="15" placeholder="First Name" autocomplete="off" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>" />
 				<input type="text" name="last_name" size="20" maxlength="15" placeholder="Last Name" autocomplete="off" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>"/>
 

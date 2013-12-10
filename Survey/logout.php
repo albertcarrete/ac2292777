@@ -1,8 +1,7 @@
 <?php # Script 12.11 - logout.php #2
 // This page lets the user logout.
 // This version uses sessions.
-
-session_start(); // Access the existing session.
+include ('./header.php');
 
 // If no session variable exists, redirect the user:
 if (!isset($_SESSION['user_id'])) {
@@ -14,6 +13,7 @@ if (!isset($_SESSION['user_id'])) {
 } else { // Cancel the session:
 
 	$_SESSION = array(); // Clear the variables.
+	session_unset();
 	session_destroy(); // Destroy the session itself.
 	setcookie ('PHPSESSID', '', time()-3600, '/', '', 0, 0); // Destroy the cookie.
 
@@ -21,7 +21,6 @@ if (!isset($_SESSION['user_id'])) {
 
 // Set the page title and include the HTML header:
 $page_title = 'Logged Out!';
-include ('./header.php');
 ?>
 <div class="row">
 	<div class="grid_12">

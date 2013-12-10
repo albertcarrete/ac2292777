@@ -1,15 +1,14 @@
-<?php include ('./header.php'); ?>
-			<div class="row content">
-				<div class="grid_12">
-<?php # Script 9.6 - view_users.php #2
-// This script retrieves all the records from the users table.
-
-$page_title = 'View the Current Users';
-
-// Page header:
+<?php include ('./header.php'); 
+// Required Documentation
 require ('./mysqli_connect.php'); // Connect to the db.
-	
-	$tablename = '47924';	
+require ('./login_functions.inc.php'); 
+if(($_SESSION['isAdmin'])>0){
+
+?>
+	<div class="row content">
+		<div class="grid_12">
+<?php 
+
 // Make the query:
 $q = "SELECT CONCAT(last_name, ', ', first_name) AS name, email AS em FROM `$tablename`.`ac2292777_contacts`";		
 $r = @mysqli_query ($dbc, $q); // Run the query.
@@ -20,8 +19,8 @@ $num = mysqli_num_rows($r);
 
 ?>
 <div class="main-title">
-	<h1 class = "fl_l">Registered Users</h1>
 	<h1 class = "fl_r">There are currently <?php echo $num ?> contacts.</h1>
+	<div class="clear"></div>
 </div>
 
 <?php
@@ -53,4 +52,10 @@ mysqli_close($dbc); // Close the database connection.
 ?>
 </div>
 </div>
+<?php 
+}else{
+	redirect_user();
+}
+
+?>
 <?php include ('./footer.php'); ?>

@@ -28,7 +28,7 @@ if (isset($errors) && !empty($errors)) {
 				<p>Log In</p>
 			</div>
 		
-		<form action="index.php" method="post" autocomplete="off">
+		<form action="./login.php" method="post" autocomplete="off">
 				<input type="text" name="email" size="20" maxlength="30" placeholder="EMAIL" autocomplete="off"/>
 				<input type="password" name="pass" size="20" maxlength="20" placeholder="PASS"/>
 				<div class="clear"></div>

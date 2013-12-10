@@ -2,13 +2,13 @@
 // This page is for deleting a user record.
 // This page is accessed through view_users.php.
 include ('./header.php'); ?>
-	<div class="row content">
-		<div class="grid_12">
+	<div class="row delete">
+		<div class="grid_4 offset_4">
 <?php
-$page_title = 'Delete a User';
+$page_title = 'Delete a User?';
 $tablename = '47924';	
 
-echo '<h1>Delete a User</h1>';
+echo '<h1>Delete a User?</h1>';
 
 // Check for a valid user ID, through GET or POST:
 if ( (isset($_GET['id'])) && (is_numeric($_GET['id'])) ) { // From view_users.php
@@ -80,5 +80,5 @@ mysqli_close($dbc);
 	echo '</div>';
 ?>
 </div>
-
+</div>
 <?php 	include ('./footer.php'); ?>

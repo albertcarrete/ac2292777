@@ -1,11 +1,19 @@
 <?php include "header.php"; ?>
 <div class="row">	
 	<div class="grid_12">
+				<div class="main-title">
+
 			<h1 class = "fl_l">Sign Up</h1>
+					</div>
 
-
-		<?php # Script 9.5 - register.php #2
-		// This script performs an INSERT query to add a record to the users table.
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="grid_4">
+		<img class="biglogo" src="./img/large_issinryu.png" alt="">
+		<?php 
+		
 
 		$page_title = 'Register';
 		$tablename = '47924';
@@ -131,11 +139,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 } // End of the main Submit conditional.
 ?>
+</div>
+	<div class="grid_8">
 
 <form class="contactbox" action="signup.php" method="post">
 
-
-	<p>Sign up to view your accolades and receieve information on tournaments.</p>
 	<p>Username: <input type="text" name="username" size="15" maxlength="20" value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>" /></p>
 	<p>First Name: <input type="text" name="first_name" size="15" maxlength="20" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>" /></p>
 	<p>Last Name: <input type="text" name="last_name" size="15" maxlength="40" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>" /></p>
@@ -144,6 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<p>Confirm Password: <input type="password" name="pass2" size="10" maxlength="20" value="<?php if (isset($_POST['pass2'])) echo $_POST['pass2']; ?>"  /></p>
 	<p><input type="submit" name="submit" value="Register" /></p>
 </form>
+</div>
 </div>
 </div>
 <?php include "footer.php"; ?>

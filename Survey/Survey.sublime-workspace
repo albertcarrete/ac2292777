@@ -39,104 +39,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "view_survey.php",
-			"settings":
-			{
-				"buffer_size": 3651,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "view_results.php",
-			"settings":
-			{
-				"buffer_size": 2687,
-				"line_ending": "Unix",
-				"name": "view_results.php"
-			}
-		},
-		{
-			"file": "surveysingle.inc.php",
-			"settings":
-			{
-				"buffer_size": 1176,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "surveymulti.inc.php",
-			"settings":
-			{
-				"buffer_size": 16,
-				"line_ending": "Unix",
-				"name": "surveymulti.inc.php"
-			}
-		},
-		{
-			"contents": "			<form action=\"createsurvey.php\" method=\"post\" autocomplete=\"off\">\n					<div class=\"mainselection\">\n						<select name=\"SurveyType\" id=\"input7\">\n						    <option class=\"red\" value=\"Single\">Single Question</option>\n						    <option value=\"Multi\">Multi-Question</option>\n						</select>\n					</div>\n				<input type=\"text\" name=\"Title\" size=\"20\" maxlength=\"15\" placeholder=\"Question\" autocomplete=\"off\" value=\"<?php if (isset($_POST['Title'])) echo $_POST['Title']; ?>\"/>\n\n\n				<input type=\"text\" name=\"email\" size=\"20\" maxlength=\"30\" placeholder=\"Email\" autocomplete=\"off\" value=\"<?php if (isset($_POST['email'])) echo $_POST['email']; ?>\"/>\n				<input type=\"text\" name=\"first_name\" size=\"20\" maxlength=\"15\" placeholder=\"First Name\" autocomplete=\"off\" value=\"<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>\" />\n				<input type=\"text\" name=\"last_name\" size=\"20\" maxlength=\"15\" placeholder=\"Last Name\" autocomplete=\"off\" value=\"<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>\"/>\n\n				<input type=\"password\" name=\"pass1\" size=\"20\" maxlength=\"20\" placeholder=\"Pass\" value=\"<?php if (isset($_POST['pass1'])) echo $_POST['pass1']; ?>\"/>\n				<input type=\"password\" name=\"pass2\" size=\"20\" maxlength=\"20\" placeholder=\"Pass Verify\" value=\"<?php if (isset($_POST['pass2'])) echo $_POST['pass2']; ?>\" />\n				<div class=\"clear\"></div>\n				<input type=\"submit\" name=\"submit\" value=\"Next\" />\n				<div class=\"clear\"></div>	\n			</form>\n\n\n			\n	//Regular Expressions\n	$regexName = \"/^[a-zA-z]{1,19}$/\";\n	$regexEmail = \"/^[^0-9][A-z0-9_]+([.][A-z0-9_]+)*[@][A-z0-9_]+([.][A-z0-9_]+)*[.][A-z]{2,4}$/\";\n\n	$usernameCheck = $_POST['username'];\n\n	if(empty($_POST['username'])){\n		$errors[] = \"Username field was blank\";\n	}\n	elseif(!preg_match($regexName,$usernameCheck)){\n		$errors[] = 'Invalid firstname, please use only upper and lowercase letters';\n	}\n	else{\n		$un = mysqli_real_escape_string($dbc, trim($_POST['username']));		\n	}\n\n	$firstnameCheck = $_POST['first_name'];\n\n	// Check for a first name:\n	if (empty($_POST['first_name'])) {\n		$errors[] = 'You forgot to enter your first name.';\n	}\n	elseif(!preg_match($regexName,$firstnameCheck)){\n		$errors[] = 'Invalid firstname, please use only upper and lowercase letters';\n	}\n	 else {\n		$fn = mysqli_real_escape_string($dbc, trim($_POST['first_name']));\n	}\n	\n	$lastnameCheck = $_POST['last_name'];\n	// Check for a last name:\n	if (empty($_POST['last_name'])) {\n		$errors[] = 'You forgot to enter your last name.';\n	}\n	elseif(!preg_match($regexName,$lastnameCheck)){\n		$errors[] = 'Invalid last name, please use only upper and lowercase letters';\n	}\n	 else {\n		$ln = mysqli_real_escape_string($dbc, trim($_POST['last_name']));\n	}\n	$emailCheck = $_POST['email'];\n	// Check for an email address:\n	if (empty($_POST['email'])) {\n		$errors[] = 'You forgot to enter your email address.';\n	}\n	elseif(!preg_match($regexEmail,$emailCheck)){\n		$errors[] = 'Invalid email, enter again';\n	}\n	 else {\n		$e = mysqli_real_escape_string($dbc, trim($_POST['email']));\n	}\n	\n	// Check for a password and match against the confirmed password:\n	if (!empty($_POST['pass1'])) {\n		if ($_POST['pass1'] != $_POST['pass2']) {\n			$errors[] = 'Your passwords do not match';\n		} else {\n			$p = mysqli_real_escape_string($dbc, trim($_POST['pass1']));\n		}\n	} else {\n		$errors[] = 'You forgot to enter your password.';\n	}\n	$isA = 0;\n	$isL = 0;\n	\n	if (empty($errors)) { // If everything's OK.\n	\n		// Register the user in the database...\n		\n		// Make the query:\n		$q = \"INSERT INTO `$tablename`.`ac2292777_survey_users` (username, first_name, last_name, email, pass, isAdmin, isLoggedIn, registration_date) VALUES ('$un', '$fn', '$ln', '$e', SHA1('$p'),'$isA', '$isL', NOW() )\";		\n		// $q = \"INSERT INTO `$tablename`.`ac2292777_karate_users` (username, first_name, last_name, email, pass, isAdmin, isLoggedIn, registration_date)\n		//  		VALUES (`test`, `test`, 'tester', `test@gmail.com`, SHA1('rofl'),'0', '0', NOW() )\";		\n		\n		$r = @mysqli_query ($dbc, $q); // Run the query.\n		if ($r) { // If it ran OK.\n		\n			// Print a message:\n			echo '<h1>Registration Complete</h1>\n			<a href=\"./index.php\">Click here to login</a>';\n		\n		} else { // If it did not run OK.\n			\n			// Public message:\n			echo '<h1>System Error</h1>\n			<p class=\"error\">You could not be registered due to a system error. We apologize for any inconvenience.</p>'; \n			\n			// Debugging message:\n			echo '<p>' . mysqli_error($dbc) . '<br /><br />Query: ' . $q . '</p>';\n						\n		} // End of if ($r) IF.\n		\n		mysqli_close($dbc); // Close the database connection.\n\n		// Include the footer and quit the script:\n		exit();\n		\n	} else { // Report the errors.\n	\n		// echo '<h1>Error!</h1>';\n		foreach ($errors as $msg) { // Print each error.\n			echo \"<p class='error'> $msg</p>\\n\";\n		}		\n	} // End of if (empty($errors)) IF.\n	\n	mysqli_close($dbc); // Close the database connection.",
-			"settings":
-			{
-				"buffer_size": 4876,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "css/layout.css",
-			"settings":
-			{
-				"buffer_size": 6494,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "login_page.inc.php",
-			"settings":
-			{
-				"buffer_size": 1281,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "view_users.php",
-			"settings":
-			{
-				"buffer_size": 3720,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "css/base.css",
-			"settings":
-			{
-				"buffer_size": 9633,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "mysqli_connect.php",
-			"settings":
-			{
-				"buffer_size": 761,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "header.php",
-			"settings":
-			{
-				"buffer_size": 401,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "signup.php",
-			"settings":
-			{
-				"buffer_size": 5612,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -198,34 +100,41 @@
 	},
 	"file_history":
 	[
-		"/Applications/AMPPS/www/ac2292777/Survey/createsurvey.php",
-		"/Applications/AMPPS/www/ac2292777/Karate/edit_user.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/css/layout.css",
+		"/Applications/AMPPS/www/ac2292777/Survey/my_surveys.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/login_functions.inc.php",
 		"/Applications/AMPPS/www/ac2292777/Survey/index.php",
 		"/Applications/AMPPS/www/ac2292777/Survey/signup.php",
-		"/Applications/AMPPS/www/ac2292777/Survey/login_functions.inc.php",
-		"/Applications/AMPPS/www/ac2292777/Survey/loggedin.php",
-		"/Applications/AMPPS/www/ac2292777/Survey/ralph.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/delete_survey.php",
 		"/Applications/AMPPS/www/ac2292777/Survey/login.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/settings.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/view_survey.php",
 		"/Applications/AMPPS/www/ac2292777/Survey/logout.php",
-		"/Applications/AMPPS/www/ac2292777/Survey/viewsurvey.php",
-		"/Applications/AMPPS/www/ac2292777/Survey/header.php",
-		"/Applications/AMPPS/www/ac2292777/Karate/header.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/footer.php",
 		"/Applications/AMPPS/www/ac2292777/Survey/view_users.php",
 		"/Applications/AMPPS/www/ac2292777/Survey/login_page.inc.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/surveysingle.inc.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/view_results.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/delete_user.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/createsurvey.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/header.php",
 		"/Applications/AMPPS/www/ac2292777/Survey/mysqli_connect.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/css/base.css",
+		"/Applications/AMPPS/www/ac2292777/Survey/surveymulti.inc.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/edit_user.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/loggedin.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/ralph.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/viewsurvey.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/header.php",
 		"/Applications/AMPPS/www/ac2292777/Survey/functions.php",
-		"/Applications/AMPPS/www/ac2292777/Survey/css/layout.css",
 		"/Applications/AMPPS/www/ac2292777/Karate/loggedin.php",
 		"/Applications/AMPPS/www/ac2292777/Karate/logout.php",
 		"/Applications/AMPPS/www/ac2292777/Karate/login_functions.inc.php",
 		"/Applications/AMPPS/www/ac2292777/Karate/login.php",
 		"/Applications/AMPPS/www/ac2292777/Karate/login_page.inc.php",
 		"/Applications/AMPPS/www/ac2292777/Karate/css/layout.css",
-		"/Applications/AMPPS/www/ac2292777/Survey/footer.php",
 		"/Applications/AMPPS/www/ac2292777/Survey/css/amazium.css",
-		"/Applications/AMPPS/www/ac2292777/Survey/css/base.css",
 		"/Applications/AMPPS/www/ac2292777/Karate/signup.php",
-		"/Applications/AMPPS/www/ac2292777/Karate/delete_user.php",
 		"/Applications/AMPPS/www/ac2292777/Karate/css/base.css",
 		"/Applications/AMPPS/www/ac2292777/Karate/view_contacts.php",
 		"/Applications/AMPPS/www/ac2292777/Karate/view_users.php",
@@ -318,14 +227,7 @@
 		"/C/Users/Albert/Dropbox/root/RCC_Classes/CSC-18A-JavaProgrammingObjects/Chapter7-Problems/79.txt",
 		"/C/Users/Albert/Downloads/darkscintilla_and_autocomplete/DarkScintilla_Autocomplete/MXS_EditorAbbrev.properties",
 		"/C/Users/Albert/Downloads/darkscintilla_and_autocomplete/DarkScintilla_Autocomplete/MXS_EditorUser.properties",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CSC-18A-JavaProgrammingObjects/Chapter7-Problems/76-79.txt",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CSC-18A-JavaProgrammingObjects/Chapter7-Problems/firstfew.pdf",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CSC-18A-JavaProgrammingObjects/Code examples/ch07/ch07/fig07_09_11/DeckOfCards.java",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CSC-18A-JavaProgrammingObjects/Code examples/ch07/ch07/fig07_09_11/DeckOfCardsTest.java",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CSC-18A-JavaProgrammingObjects/Code examples/ch07/ch07/fig07_09_11/Card.java",
-		"/C/Users/Albert/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CSC-18A-JavaProgrammingObjects/Quizes/Quiz3.txt",
-		"/C/Users/Albert/Desktop/netbeans.conf"
+		"/C/Users/Albert/Dropbox/root/RCC_Classes/CSC-18A-JavaProgrammingObjects/Chapter7-Problems/76-79.txt"
 	],
 	"find":
 	{
@@ -343,6 +245,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"for",
+			"form",
+			"<?",
+			"head",
+			"logo",
 			"div",
 			"get",
 			"form",
@@ -407,330 +314,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "view_survey.php",
-					"settings":
-					{
-						"buffer_size": 3651,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								832,
-								832
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 420.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "view_results.php",
-					"settings":
-					{
-						"buffer_size": 2687,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2501,
-								2501
-							]
-						],
-						"settings":
-						{
-							"auto_name": "view_results.php",
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "surveysingle.inc.php",
-					"settings":
-					{
-						"buffer_size": 1176,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								466,
-								466
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "surveymulti.inc.php",
-					"settings":
-					{
-						"buffer_size": 16,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								16,
-								16
-							]
-						],
-						"settings":
-						{
-							"auto_name": "surveymulti.inc.php",
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"settings":
-					{
-						"buffer_size": 4876,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1460,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "css/layout.css",
-					"settings":
-					{
-						"buffer_size": 6494,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								962,
-								962
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 313.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "login_page.inc.php",
-					"settings":
-					{
-						"buffer_size": 1281,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								281,
-								281
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "view_users.php",
-					"settings":
-					{
-						"buffer_size": 3720,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2485,
-								2543
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "css/base.css",
-					"settings":
-					{
-						"buffer_size": 9633,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1241,
-								1247
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "mysqli_connect.php",
-					"settings":
-					{
-						"buffer_size": 761,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								458,
-								458
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "header.php",
-					"settings":
-					{
-						"buffer_size": 401,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								346,
-								346
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "signup.php",
-					"settings":
-					{
-						"buffer_size": 5612,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3283,
-								3283
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1509.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -790,6 +375,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 252.0,
+	"side_bar_width": 196.0,
 	"status_bar_visible": true
 }

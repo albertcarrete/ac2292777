@@ -3,13 +3,13 @@
 <div class="row">
 	<div class="grid_12">
 	<h2 class="reg-header">Biography</h2>
-	<p class="about">
+	<p>
 	<img class="biopic" align="left"src="./img/arnold.jpg" alt="">
 		<span class="emphasis">Sensei Arnold Sandubrae</span> began his Isshinryu Karate training in 1973, under the instruction of Sensei's Robert L. White, and Sam Santilli, students of Mastert Willie Adams.   Several years later, he transferred to train directly under Master Willie Adams because Master Adams Dojo was located only blocks from Sensei Sandubrae's office.  From 1973 until 1986 he amassed over 200 trophies in all categories, Kata, Kumite, Weapons, and Breaking.
 		Sensei Sandubrae has had  his own Karate School since 1978.   That is when he retired from the business world, and moved to his home in Palm Springs, California.  At that time, with the approval of Master Willie Adams, Sensei Sandubrae went
 		under the leadership of Master Harold Long,  Ju Dan.   Sensei Sandubrae remained his  student until Master Long's death in 1998. In June of 2002, Sensei Sandubrae went under the direction of an old time friend and Master instructor, Joel Chandler Ku Dan. Sensei Sandubrae remained his  student until Master Chandler's death in 2012.
 		</p>
-	<p class="about">		
+	<p>		
 
 		For more than 20 years, Sensei Sandubrae donated ALL proceeds directly to the American Heart Association, an organization that he was a Board Member of for 21 years.  
 		He has appeared on many National Television   shows and Radio programs furthering the art of Isshinryu Karate.  For 28 years,  Sensei Sandubrae was a Board Member of the prestigious Isshinryu Hall of Fame, and was a  Board Member of the Tatsuo-Kan Society. For many years he was a Board Member of the International Isshinryu Karate Association. ( IIKA )

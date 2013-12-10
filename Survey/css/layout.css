@@ -48,6 +48,10 @@
 }
 .info-container .head{
 	background-color:#0d1925;
+	text-align:left;
+}
+.info-container .head h1{
+	text-align:center;
 }
 .info-container .subhead{
 	background-color: #0d141c;
@@ -138,6 +142,19 @@ p.bullet{
     /* Standard */
     transition: all .2s ease-in;
 }
+.info-container input[type="submit"].result-button{
+	font-family:TradeGothic;
+	font-weight:normal;
+	text-transform:none;
+	color:#fff;
+	float: left;
+	width: 50%;
+	text-align: center;
+	padding: 20px 0;
+	margin:0;
+	font-size:13px;
+	-webkit-font-smoothing: antialiased;
+}
 .info-container input[type="submit"]:hover{
 	background-color:#ff5c40;
 	color:#fff;
@@ -149,13 +166,15 @@ p.bullet{
     /* Standard */
     transition: all .2s ease-in;	
 }
+.info-container a{
+	color:#fff;
+	text-decoration:none;
+}
 .info-container a:hover{
 	color:#ff5c40;
 	text-decoration:none;
 }
-.info-container table{
-	background-color:transparent;
-}
+.info-container table{ background-color:transparent; }
 .info-container table th{
 	background-color: transparent;
 	font-family:'Blender';
@@ -188,11 +207,10 @@ p.bullet{
 	border:1px solid #4b4f50;
 	font-size:14px;	
 	width:100%;
-	background:#0b0b0b;
-	background-image:none;
+	background:#0b0b0b url('../img/dropdown-arrow.png') no-repeat;
 	border-radius:0px;
 	color:#9ed3cd;
-	padding:10px;
+	padding:10px 10px 10px 35px;
 	white-space:normal;
 	cursor:pointer;
 }
@@ -274,6 +292,41 @@ p.bullet{
 	width:60%;
 	display:block;
 	margin: 20px auto;
+}
+
+.debugHUD{
+	padding:20px;
+	background-color:#fff;
+}
+.logo{
+	padding:0px 20px;
+}
+.user{
+	width:40%;
+
+}
+.admin{
+	width:60%;
+
+}
+.nav{
+	margin:0 auto;
+	display:block;
+
+}
+.nav ul{
+	margin:0 auto;
+}
+.nav li{
+	float:left;
+}
+.user li{
+	width:19%;
+
+}
+.admin li{
+	width:15%;
+
 }
 /* #Media Queries
 ================================================== */

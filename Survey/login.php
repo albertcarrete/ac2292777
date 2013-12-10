@@ -20,11 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		ini_set('session.gc_probability',1);
 		// Set the session data:
 		session_start();
-		$_SESSION['user_id'] 			= $data['user_id'];
+		$_SESSION['user_id'] 		= $data['user_id'];
 		$_SESSION['first_name'] 	= $data['first_name'];
 		$_SESSION['last_name']		= $data['last_name'];
 		$_SESSION['isAdmin'] 		= $data['isAdmin'];
-		
+		$_SESSION['username'] 		= $data['username'];
+
 		// Store the HTTP_USER_AGENT:
 		$_SESSION['agent'] = md5($_SERVER['HTTP_USER_AGENT']);
 

@@ -78,6 +78,30 @@ src: url('../fonts/BINDLE.otf');
 
 /* #Site Styles
 ================================================== */
+p{
+		margin:10px 0;
+		padding:20px;
+		color:#333;
+		font-size:17px;
+		font-family: 'Droid Sans', sans-serif;
+		line-height:30px;
+		text-align:left;
+		-webkit-font-smoothing: antialiased;
+		text-shadow:none;
+}
+span.bold{
+	font-weight:bold;
+}
+.text-center{text-align:center;}
+
+
+
+
+
+
+
+
+
 	.fl_r{
 		float:right;
 	}
@@ -143,6 +167,7 @@ src: url('../fonts/BINDLE.otf');
 	}
 	.content{
 		margin-top:20px;
+		min-height:300px;
 	}
 	.main-nav ul{
 		float:left;
@@ -209,11 +234,22 @@ src: url('../fonts/BINDLE.otf');
 
 	}
 
+/* =================================================
+*  Biography - Bio.php
+==================================================*/
 
 	.biopic{
 		padding:0 20px 20px 0;
+		margin:0;
 	}
-		
+
+/* =================================================
+*  Biography - Bio.php
+==================================================*/		
+	.photos img{
+		max-width:120px;
+	}
+
 	#list-nav li a{color:#fff; text-decoration:none;}
 	#list-nav-2 li a{color:#fff; text-decoration:none;}
 
@@ -251,6 +287,21 @@ src: url('../fonts/BINDLE.otf');
 		padding:0px;
 		margin:0px 0px;
 	}
+/* =================================================
+*  ABOUT
+==================================================*/
+.about{margin-bottom:40px;}
+.about img{padding-top:40px;}
+.regular-details{
+	display:block;
+	padding:20px 0;
+}
+span.name{ 
+	font-size:14px;
+}
+span.belt{
+	font-size:12px;
+}
 	h2.reg-header{
 		font-size:25px;
 		font-family: 'Droid Sans', sans-serif;
@@ -259,22 +310,22 @@ src: url('../fonts/BINDLE.otf');
 		font-weight:bold;
 		padding:10px 20px;
 	}
-	p.about{
-		margin:10px 0;
-		padding:20px;
-		color:#222;
-		font-size:16px;
-		font-family: 'Droid Sans', sans-serif;
-		line-height:30px;
-		text-align:left;
-		-webkit-font-smoothing: antialiased;
-		text-shadow:none;
-	}
 	span.emphasis{
 		font-weight:bold;
 		font-size:24px;
 		line-height:28px;
 	}
+
+/* =================================================
+*  DELETE
+==================================================*/
+.delete{
+	margin:100px auto;
+}
+
+
+
+
 	.six > img{
 		width:100%;
 	}
@@ -291,6 +342,8 @@ src: url('../fonts/BINDLE.otf');
 		font-size:16px;
 		font-weight:bold;
 		text-transform: uppercase;
+		margin:0;
+		padding:0;
 	}
 	.contactbox input[type="text"]{
 		color:#888;
@@ -366,13 +419,27 @@ src: url('../fonts/BINDLE.otf');
 }
 #footer{
 	border-top: 5px solid #111;
-	padding:20px;
+	padding:80px 20px;
 	background-color:#222;
 }
 #footer img{
 		margin:0 auto;
-		max-width:250px;
+		width:100%;
+}
+.left h4,.left  h5,.left  h6{
+	text-align:right;
+	color:#fff;
+}
+.left{
+	margin-top:20px;
+}
+.right h4,.right h5,.right h6{
+	text-align:left;
+	color:#fff;
 
+}
+.right{
+	margin-top:20px;
 }
 .content table{
 	width:100%;
