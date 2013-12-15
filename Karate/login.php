@@ -16,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	list ($check, $data) = check_login($dbc, $_POST['email'], $_POST['pass']);
 	
 	if ($check) { // OK!
-		ini_set('session.gc_maxlifetime',5);
-		ini_set('session.gc_probability',1);
+		// ini_set('session.gc_maxlifetime',5);
+		// ini_set('session.gc_probability',1);
 		// Set the session data:
 		session_start();
 		$_SESSION['user_id'] 			= $data['user_id'];
