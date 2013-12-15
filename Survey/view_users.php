@@ -2,8 +2,18 @@
 // This script retrieves all the records from the users table.
 // This new version allows the results to be sorted in different ways.
 include ('./header.php'); ?>
-			<div class="content row">
-				<div class="grid_12">
+	<div class="row">
+		<?php include ('./navbar.php');?>
+
+
+
+		<div class="grid_12">
+
+		<div class="info-container wide">
+			<div class="subhead">
+				<h3>My Surveys</h3>
+			</div>
+
 <?php
 $page_title = 'View the Current Users';
 require ('./mysqli_connect.php');
@@ -73,12 +83,12 @@ echo '<table align="center" cellspacing="0" cellpadding="5" width="75%">
 ';
 
 // Fetch and print all the records....
-$bg = '#eeeeee'; 
+	$style = 'alt';
 while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-	$bg = ($bg=='#eeeeee' ? '#ffffff' : '#eeeeee');
-		echo '<tr bgcolor="' . $bg . '">
-		<td align="left"><a href="edit_user.php?id=' . $row['ID'] . '">Edit</a></td>
-		<td align="left"><a href="delete_user.php?id=' . $row['ID'] . '">Delete</a></td>
+	$style = ($style=='alt' ? 'alt2' : 'alt');
+		echo '<tr class="' . $style . '">
+		<td align="left"><a href="edit_user.php?id=' . $row['user_id'] . '">Edit</a></td>
+		<td align="left"><a href="delete_user.php?id=' . $row['user_id'] . '">Delete</a></td>
 		<td align="left">' . $row['last_name'] . '</td>
 		<td align="left">' . $row['first_name'] . '</td>
 		<td align="left">' . $row['dr'] . '</td>
@@ -119,6 +129,7 @@ if ($pages > 1) {
 	
 } // End of links section.
 	?>
+</div>
 </div>
 </div>
 <?php include ('./footer.php'); ?>

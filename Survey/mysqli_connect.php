@@ -5,15 +5,15 @@
 // selects the database, and sets the encoding.
 
 // Set the database access information as constants:
-// DEFINE ('DB_USER', '47924');
-// DEFINE ('DB_PASSWORD', '47924cis12');
-// DEFINE ('DB_HOST', '209.129.8.3');
-// DEFINE ('DB_NAME', '47924');
-
-DEFINE ('DB_USER', 'acarrete');
-DEFINE ('DB_PASSWORD', 'admin');
-DEFINE ('DB_HOST', 'localhost');
+DEFINE ('DB_USER', '47924');
+DEFINE ('DB_PASSWORD', '47924cis12');
+DEFINE ('DB_HOST', '209.129.8.3');
 DEFINE ('DB_NAME', '47924');
+
+// DEFINE ('DB_USER', 'acarrete');
+// DEFINE ('DB_PASSWORD', 'admin');
+// DEFINE ('DB_HOST', 'localhost');
+// DEFINE ('DB_NAME', '47924');
 
 
 $tablename = '47924';

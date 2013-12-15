@@ -3,32 +3,33 @@
 // and it creates the entire login page, including the form.
 
 // Include the header:
-$page_title = 'Login';
-include ('./header.php');?>
+$page_title = 'Login';?>
 
 <div class="row">
 	<div class="grid_12">
 		<div class="info-container narrow top">		
 <?php
 
-// Print any error messages, if they exist:
-if (isset($errors) && !empty($errors)) {
-	echo '<h1>Error!</h1>
-	<p class="error">The following error(s) occurred:<br />';
-	foreach ($errors as $msg) {
-		echo " - $msg<br />\n";
-	}
-	echo '</p><p>Please try again.</p>';
-}
 
 // Display the form:
 ?>
 			<div class="head">
-				<h1>Surveyor</h1>
+				<div class="logo">
+					<h1>Surveyor</h1>
+				</div>
 				<p>Log In</p>
 			</div>
-		
-		<form action="./login.php" method="post" autocomplete="off">
+		<?php 
+if (isset($errors) && !empty($errors)) {
+	echo '
+	<p class="error">The following error(s) occurred:<br />';
+	foreach ($errors as $msg) {
+		echo " - $msg<br />\n";
+	}
+	echo '</p>';
+}
+		?>
+		<form action="./index.php" method="post" autocomplete="off">
 				<input type="text" name="email" size="20" maxlength="30" placeholder="EMAIL" autocomplete="off"/>
 				<input type="password" name="pass" size="20" maxlength="20" placeholder="PASS"/>
 				<div class="clear"></div>

@@ -26,12 +26,18 @@ $page_title = 'Logged Out!';
 	<div class="grid_12">
 		<div class="info-container narrow">		
 			<div class="head">
-				<h1>Surveyor</h1>
+				<div class="logo">
+					<h1>Surveyor</h1>
+				</div>
 				<p>Notification</p>
 			</div>
-			<h3>Logged Out!</h3>
-			<a href=""><p>You are now logged out!</p></a>
-		</div>
+			<div class="results">
+			<h4>Logged Out Successfully</h4>
+			<img src="./img/success.png" alt="">
+			<a class="result-button" href="./">Log In</a>
+			<a class ="result-button" href='./info.php'>Info</a>
+			<div class="clear"></div>
+			</div>
 	</div>
 </div> <!-- end row-->
 

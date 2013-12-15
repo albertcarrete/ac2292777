@@ -1,3 +1,12 @@
+<?php
+
+if(!isset($_SESSION)){
+
+    session_start();
+}
+
+?>
+
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
@@ -14,21 +23,23 @@
 
   $page = basename($_SERVER['REQUEST_URI']);
     if ($page == 'index.php' || $page == "/" || $page == '' || $page=='Survey') {
-		ini_set('session.gc_maxlifetime',5);
-		ini_set('session.gc_probability',1);
-		ini_set('session.max_lifetime',5);
-
     }
     else{
 
     }
-session_start(); ?>
+ ?>
 <?php 
-$debug=false;
+
+	$debug=false;
 	if($debug == true){
 		echo "<div class = 'debugHUD'>";
-		echo "session.gc_maxlifetime = ".ini_get("session.gc_maxlifetime");
-		echo $_SESSION['username'];
+
+		if (isset($_SESSION['username'])){
+			echo "Current User: ".$_SESSION['username'];
+		}
+		else{
+			echo "No user logged in";
+		}
 		echo "</div>";
 	}
 

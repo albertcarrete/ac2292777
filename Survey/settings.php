@@ -5,7 +5,9 @@
 		<div class="info-container narrow top">		
 
 			<div class="head">
+				<div class="logo">
 				<h1>Surveyor</h1>
+				</div>
 				<p>Edit your account</p>
 			</div>
 

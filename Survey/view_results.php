@@ -3,7 +3,9 @@
 		<div class="grid_12">
 			<div class="info-container narrow top">	
 	<div class="head">
+		<div class="logo">
 		<a href="./"><h1>Surveyor</h1></a>
+		</div>
 		<p>Survey Results</p>
 	</div>
 <?php 
@@ -35,7 +37,7 @@ $getResponses = "SELECT responses AS responsed,title FROM `$tablename`.`ac229277
 		preg_match_all("/[^,\s][^\,]*[^,\s]*/", $row[0], $output_array);
 		echo "<div class='subhead'><h3>";
 		echo $row[1];
-		echo "</h3></div>";
+		echo "</h3>";
 
 
 		// FIND TOTAL RESPONSES TO THIS SURVEY
@@ -43,8 +45,12 @@ $getResponses = "SELECT responses AS responsed,title FROM `$tablename`.`ac229277
 			if($totResps){
 				$qTotalResponses = @mysqli_query ($dbc, $totResps);	
 				$numTotalResponses = mysqli_num_rows($qTotalResponses); // NUMBER OF TOTAL RESPONSES				
-			}				
-
+			}
+		if ($numTotalResponses == 0){
+			echo "<h4>There are no responses yet.</h4></div>";
+		}		
+		else{
+			echo"</div>";
 		$int = 0;
 		foreach($output_array[0] as $value){
 			$q = "SELECT * FROM `$tablename`.`ac2292777_survey_responses` WHERE survey_id=$id AND user_response='$value'";
@@ -69,6 +75,7 @@ $getResponses = "SELECT responses AS responsed,title FROM `$tablename`.`ac229277
 				exit();
 			}
 		}
+ 		}
 		echo "<div class='results'>";
 		echo "<a class='result-button' href='./''>Return to Dashboard</a>";
 				echo "<a class='result-button' href='./''>Favorite</a>";

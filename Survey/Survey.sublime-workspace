@@ -39,6 +39,62 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "header.php",
+			"settings":
+			{
+				"buffer_size": 830,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php \n\n// = = = = = = = = = = = = = \n// Check for a session user\n// = = = = = = = = = = = = = \nif (isset($_SESSION['user_id'])) { ?>\n\n	<div class=\"row\">	\n		<div class=\"grid_12\">\n			<div class=\"info-container wide top\">	\n				<div class=\"head\">\n					<div class=\"logo\">\n					<a href=\"./\"><h1>Surveyor</h1></a>\n					</div>\n<!-- IF USER IS AN ADMIN -->					\n<?php if($_SESSION['isAdmin'] > 0){ ?>\n					<div class=\"nav admin\">\n						<ul>\n							<li><a href=\"./\">Dashboard</a></li>\n							<li><a href=\"./createsurvey.php\">Create Survey</a></li>\n							<li><a href=\"./my_surveys.php\">Edit Surveys</a></li>\n							<li><a href=\"./my_surveys.php\">Edit Users</a></li>\n							<li><a href=\"./settings.php\">Settings</a></li>\n						</ul>\n					</div>\n	<?php }\n	else{ ?>\n					<div class=\"nav user\">\n						<ul>\n							<li><a href=\"./\">Dashboard</a></li>\n							<li><a href=\"./createsurvey.php\">Create Survey</a></li>\n							<li><a href=\"./my_surveys.php\">My Surveys</a></li>\n							<li><a href=\"./settings.php\">Settings</a></li>\n						</ul>\n					</div>\n	<?php } ?>\n					<div class=\"clear\"></div>\n				</div>\n			</div>\n		</div>\n<!-- \n\n// ====================================================================================\n//\n//	ACTIVE SURVEYS\n//	- Section of the dashboard that displays all surveys to the user.\n//\n// ====================================================================================\n -->\n<div class=\"grid_9\">\n	<div class=\"info-container wide\">\n		<div class=\"subhead\">\n			<h3>Active Surveys</h3>\n		</div>\n			\n<?php require ('./mysqli_connect.php'); \n\n	// Number of records to show per page:\n	$display = 10;\n\n	// Determine how many pages there are...\n	if (isset($_GET['p']) && is_numeric($_GET['p'])) { // Already been determined.\n\n		$pages = $_GET['p'];\n\n	} else { // Need to determine.\n\n	 	// Count the number of records:\n		$q = \"SELECT COUNT(survey_id) FROM `$tablename`.`ac2292777_survey_surveys`\";\n		$r = @mysqli_query ($dbc, $q);\n		$row = @mysqli_fetch_array ($r, MYSQLI_NUM);\n		$records = $row[0];\n		// Calculate the number of pages...\n		if ($records > $display) { // More than 1 page.\n			$pages = ceil ($records/$display);\n		} else {\n			$pages = 1;\n		}\n	} // End of p IF.\n\n	// Determine where in the database to start returning results...\n	if (isset($_GET['s']) && is_numeric($_GET['s'])) {\n		$start = $_GET['s'];\n	} else {\n		$start = 0;\n	}\n\n	// Determine the sort...\n	// Default is by registration date.\n	$sort = (isset($_GET['sort'])) ? $_GET['sort'] : 'rd';\n\n	// Determine the sorting order:\n	switch ($sort) {\n		case 'ln':\n			$order_by = 'last_name ASC';\n			break;\n		case 'fn':\n			$order_by = 'first_name ASC';\n			break;\n		case 'rd':\n			$order_by = 'registration_date ASC';\n			break;\n		default:\n			$order_by = 'registration_date ASC';\n			$sort = 'rd';\n			break;\n	}\n	\n\n	// Query Constants\n	// ======================================\n	$user_id = $_SESSION['user_id'];\n\n\n	// Query SELECT's\n	// ======================================\n	$checkResponse 	= \"SELECT survey_id FROM `$tablename`.`ac2292777_survey_responses` WHERE user_id=$user_id\";		\n	$q 				= \"SELECT owner, title, DATE_FORMAT(reg_date, '%M %d, %Y') AS dr, survey_id FROM `$tablename`.`ac2292777_survey_surveys`\";	\n\n	// Query Calls\n	// ======================================\n	$queryCheckResponse 	= @mysqli_query ($dbc, $checkResponse); // Run the query.\n	$r 						= @mysqli_query ($dbc, $q); // Run the query.\n\n	// Table header:\n	echo '<table align=\"center\" cellspacing=\"0\" cellpadding=\"5\" width=\"75%\">\n	<tr>\n		<th><a href=\"view_users.php?sort=ln\">Title</a></th>\n		<th><a href=\"view_users.php?sort=fn\">Author</a></th>\n		<th><a href=\"view_users.php?sort=rd\">Created</a></th>\n		<th>Take</th>\n	</tr>';\n\n	while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)){\n\n		$style = ($style=='alt' ? 'alt2' : 'alt');\n		echo '<tr class=\"' . $style . '\">\n		<td align=\"left\">' . $row['title'] . '</td>\n		<td align=\"left\">' . $row['owner'] . '</td>\n		<td align=\"left\">' . $row['dr'] . '</td>';\n\n		mysqli_data_seek($queryCheckResponse,0); // reset fetch\n		while( $rowtwo = mysqli_fetch_array($queryCheckResponse, MYSQLI_ASSOC)){\n\n\n			if($rowtwo['survey_id']==$row['survey_id']){ // If there is a survey_id match, break loop and report a matchfound\n				$matchfound = true;\n				break;\n			}\n			else{\n				$matchfound = false;\n			}\n\n		}\n\n		if($matchfound == true){\n			echo'<td class='.$row['survey_id'].'vs'.$rowtwo['survey_id'].' align=\"left\"><a href=\"view_results.php?id=' . $row['survey_id'] . '\">Results</a></td>';\n\n		}\n		else{\n				echo'<td class='.$row['survey_id'].'vs'.$rowtwo['survey_id'].' align=\"left\"><a href=\"view_survey.php?id=' . $row['survey_id'] . '\">Take</a></td>';\n\n		}\n	}\necho '</table>';\n\nmysqli_free_result ($r);\nmysqli_free_result ($queryCheckResponse);\n\nmysqli_close($dbc);\n		?>\n\n\n\n		</div>\n	</div>\n\n\n\n\n	<div class=\"grid_3\">\n		<div class=\"info-container wide\">\n				<div class=\"subhead\">\n				<h3>Profile</h3>\n			</div>\n			<img class=\"profile_picture\" src=\"./IMG/profile_default.png\" alt=\"\">\n			<h5><?php echo $_SESSION['username']; ?></h5>\n\n		</div>\n	</div>\n	<div class=\"grid_12\">\n		<div class=\"info-container wide top\">	\n			<p><a href=\"./logout.php\">Log out of <?php echo $_SESSION['first_name']; ?> <?php echo $_SESSION['last_name']; ?> (<?php echo $_SESSION['username']; ?> )</a></p>			\n\n		</div>\n	</div>\n</div>\n\n<?php } else {  // tied to isset($_SESSION('user_id'))\n\n// Check if the form has been submitted:\nif ($_SERVER['REQUEST_METHOD'] == 'POST') {\n\n	echo \"POST made\";\n	// Need two helper files:\n	require ('./login_functions.inc.php');\n	require ('./mysqli_connect.php');		\n	// Check the login:\n	list ($check, $data) = check_login($dbc, $_POST['email'], $_POST['pass']);\n	\n	if ($check) { // OK!\n\n\n		// Set the session data:\n		$_SESSION['user_id'] 		= $data['user_id'];\n		$_SESSION['username'] 		= $data['username'];\n		$_SESSION['first_name'] 	= $data['first_name'];\n		$_SESSION['last_name']		= $data['last_name'];\n		$_SESSION['isAdmin'] 		= $data['isAdmin'];\n		$_SESSION['title'] 			= \"Default Title\";\n		// Store the HTTP_USER_AGENT:\n		$_SESSION['agent'] = md5($_SERVER['HTTP_USER_AGENT']);\n\n		// Redirect:\n		redirect_user('loggedin.php');\n			\n	} else { // Unsuccessful!\n\n		// Assign $data to $errors for login_page.inc.php:\n		$errors = $data;\n\n	}\n		\n	mysqli_close($dbc); // Close the database connection.\n\n} // End of the main submit conditional.\n\n?>\n\n<?php include ('./login_page.inc.php'); ?>\n\n<?php } ?>\n\n<?php include ('./footer.php'); ?>",
+			"settings":
+			{
+				"buffer_size": 6413,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "login_page.inc.php",
+			"settings":
+			{
+				"buffer_size": 1257,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.php",
+			"settings":
+			{
+				"buffer_size": 6518,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "login_functions.inc.php",
+			"settings":
+			{
+				"buffer_size": 2330,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/layout.css",
+			"settings":
+			{
+				"buffer_size": 7431,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/base.css",
+			"settings":
+			{
+				"buffer_size": 9688,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -100,6 +156,8 @@
 	},
 	"file_history":
 	[
+		"/C/xampp/htdocs/Survey/createsurvey.php",
+		"/C/xampp/htdocs/Survey/index.php",
 		"/Applications/AMPPS/www/ac2292777/Survey/css/layout.css",
 		"/Applications/AMPPS/www/ac2292777/Survey/my_surveys.php",
 		"/Applications/AMPPS/www/ac2292777/Survey/login_functions.inc.php",
@@ -225,9 +283,7 @@
 		"/M/Web Development/styles/layout.css",
 		"/N/Torrents/PIXOLOGIC_ZBRUSH_V4R6-XFORCE/Crack/install.txt",
 		"/C/Users/Albert/Dropbox/root/RCC_Classes/CSC-18A-JavaProgrammingObjects/Chapter7-Problems/79.txt",
-		"/C/Users/Albert/Downloads/darkscintilla_and_autocomplete/DarkScintilla_Autocomplete/MXS_EditorAbbrev.properties",
-		"/C/Users/Albert/Downloads/darkscintilla_and_autocomplete/DarkScintilla_Autocomplete/MXS_EditorUser.properties",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CSC-18A-JavaProgrammingObjects/Chapter7-Problems/76-79.txt"
+		"/C/Users/Albert/Downloads/darkscintilla_and_autocomplete/DarkScintilla_Autocomplete/MXS_EditorAbbrev.properties"
 	],
 	"find":
 	{
@@ -245,6 +301,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"head",
+			"logo",
+			"wide",
+			"header",
 			"for",
 			"form",
 			"<?",
@@ -314,8 +374,195 @@
 	"groups":
 	[
 		{
+			"selected": 3,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "header.php",
+					"settings":
+					{
+						"buffer_size": 830,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								588,
+								588
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"settings":
+					{
+						"buffer_size": 6413,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1388,
+								1108
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "login_page.inc.php",
+					"settings":
+					{
+						"buffer_size": 1257,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								206,
+								206
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "index.php",
+					"settings":
+					{
+						"buffer_size": 6518,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5205,
+								5205
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1116.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "login_functions.inc.php",
+					"settings":
+					{
+						"buffer_size": 2330,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "css/layout.css",
+					"settings":
+					{
+						"buffer_size": 7431,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3822,
+								3822
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1419.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "css/base.css",
+					"settings":
+					{
+						"buffer_size": 9688,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1266,
+								1266
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 156.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -375,6 +622,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 196.0,
+	"side_bar_width": 170.0,
 	"status_bar_visible": true
 }

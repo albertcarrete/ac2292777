@@ -1,0 +1,380 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"query",
+				"queryCheckResponse"
+			],
+			[
+				"response",
+				"responseQuery"
+			],
+			[
+				"resAr",
+				"resArrUNSERIALIZED"
+			],
+			[
+				"resArr",
+				"resArrUNSERIALIZED"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"url",
+				"url"
+			],
+			[
+				"curl",
+				"curl_scraped_page"
+			],
+			[
+				"interp",
+				"interpVal"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 357.0,
+		"selected_items":
+		[
+			[
+				"package control",
+				"Package Control: Install Package"
+			],
+			[
+				"package controll",
+				"Package Control: Enable Package"
+			],
+			[
+				"package",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"package install",
+				"Package Control: Install Package"
+			],
+			[
+				"package control ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 520.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Applications/AMPPS/www/ac2292777/Survey/css/layout.css",
+		"/Applications/AMPPS/www/ac2292777/Survey/my_surveys.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/login_functions.inc.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/index.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/signup.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/delete_survey.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/login.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/settings.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/view_survey.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/logout.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/footer.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/view_users.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/login_page.inc.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/surveysingle.inc.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/view_results.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/delete_user.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/createsurvey.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/header.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/mysqli_connect.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/css/base.css",
+		"/Applications/AMPPS/www/ac2292777/Survey/surveymulti.inc.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/edit_user.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/loggedin.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/ralph.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/viewsurvey.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/header.php",
+		"/Applications/AMPPS/www/ac2292777/Survey/functions.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/loggedin.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/logout.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/login_functions.inc.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/login.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/login_page.inc.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/css/layout.css",
+		"/Applications/AMPPS/www/ac2292777/Survey/css/amazium.css",
+		"/Applications/AMPPS/www/ac2292777/Karate/signup.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/css/base.css",
+		"/Applications/AMPPS/www/ac2292777/Karate/view_contacts.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/view_users.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/nav-admin.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/about.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/index.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/footer.php",
+		"/Applications/AMPPS/www/ac2292777/Karate/contact.php",
+		"/C/xampp/htdocs/issinryu-v3/css/layout.css",
+		"/C/xampp/htdocs/issinryu-v3/contact.php",
+		"/C/xampp/htdocs/issinryu-v3/bio.php",
+		"/C/xampp/htdocs/issinryu-v3/about.php",
+		"/C/xampp/htdocs/issinryu-v3/index.php",
+		"/C/xampp/htdocs/issinryu-v3/header.php",
+		"/C/xampp/htdocs/issinryu-v3/login.php",
+		"/C/xampp/htdocs/issinryu-v3/loggedin.php",
+		"/N/Torrents/The Man from Nowhere (2010) 1080p x264 DD5.1 EN NL SPA Subs [Asian Planet]/The Man from Nowher 2010 1080p x264 EN.srt",
+		"/C/xampp/htdocs/functions.php",
+		"/C/xampp/htdocs/functions2.php",
+		"/C/xampp/htdocs/issinryu-v3/css/base.css",
+		"/C/xampp/htdocs/issinryu-v3/logout.php",
+		"/C/xampp/htdocs/phpmysql4_scripts/ch12/login_functions.inc.php",
+		"/C/xampp/htdocs/issinryu-v3/login_page.inc.php",
+		"/C/xampp/htdocs/issinryu-v3/login_functions.inc.php",
+		"/C/Users/Albert/Downloads/phpmysql4_scripts (1)/phpmysql4_scripts/ch12/script_12_10/header.html",
+		"/C/Users/Albert/Downloads/phpmysql4_scripts (1)/phpmysql4_scripts/ch12/script_12_12/login.php",
+		"/C/Users/Albert/Downloads/phpmysql4_scripts (1)/phpmysql4_scripts/ch12/login_functions.inc.php",
+		"/C/xampp/htdocs/issinryu-v3/view_users.php",
+		"/C/Users/Albert/Downloads/phpmysql4_scripts (1)/phpmysql4_scripts/ch12/script_12_07/header.html",
+		"/C/Users/Albert/Downloads/phpmysql4_scripts (1)/phpmysql4_scripts/ch12/includes/header.html",
+		"/C/Users/Albert/Downloads/phpmysql4_scripts (1)/phpmysql4_scripts/ch12/script_12_03/login.php",
+		"/C/xampp/htdocs/phpmysql4_scripts/ch12/script_12_08/login.php",
+		"/C/xampp/htdocs/phpmysql4_scripts/ch12/script_12_03/login.php",
+		"/C/xampp/htdocs/phpmysql4_scripts/ch12/script_12_09/loggedin.php",
+		"/C/xampp/htdocs/issinryu-v3/fonts/webfontkit-20131119-070959/stylesheet.css",
+		"/C/xampp/htdocs/phpmysql4_scripts/ch12/login_page.inc.php",
+		"/C/xampp/htdocs/phpmysql4_scripts/ch12/script_12_13/loggedin.php",
+		"/C/xampp/htdocs/phpmysql4_scripts/ch15/login_ajax.php",
+		"/C/xampp/htdocs/phpmysql4_scripts/ch11/upload_image.php",
+		"/C/xampp/htdocs/phpmysql4_scripts/ch11/show_image.php",
+		"/C/xampp/htdocs/phpmysql4_scripts/ch11/images.php",
+		"/C/xampp/htdocs/simpledom/simpleCrawl.php",
+		"/C/xampp/htdocs/scrimboards/index.php",
+		"/C/xampp/htdocs/scrimboards/css/layout.css",
+		"/C/xampp/htdocs/scrimboards/css/amazium.css",
+		"/C/xampp/htdocs/scrimboards/css/base.css",
+		"/C/xampp/htdocs/simpledom/info.php",
+		"/C/Users/Albert/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Albert/Downloads/amazium/amazium/index.html",
+		"/C/xampp/htdocs/simpledom/crawl.php",
+		"/C/xampp/htdocs/scrimboards/view_user.php",
+		"/C/xampp/htdocs/scrimboards/functions_crawl.php",
+		"/C/Users/Albert/Dropbox/index.php",
+		"/C/xampp/htdocs/scrimboards/header.php",
+		"/C/xampp/htdocs/scrimboards/view_match.php",
+		"/C/xampp/htdocs/webfontkit-20131118-221946/stylesheet.css",
+		"/C/xampp/htdocs/webfontkit-20131118-221946/layout.css",
+		"/C/Users/Albert/Dropbox/functions_crawl.php",
+		"/C/xampp/htdocs/scrimboards/footer.php",
+		"/C/Users/Albert/AppData/Roaming/Sublime Text 2/Packages/Browser Refresh/Default (Windows).sublime-keymap",
+		"/C/xampp/htdocs/simpledom/php.ini",
+		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/ShipPart.uc",
+		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/ForeArm.uc",
+		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/SCannon.uc",
+		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/ShipPilotingControls.uc",
+		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/SHud.uc",
+		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/L_Hand.uc",
+		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/Back.uc",
+		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/Armor.uc",
+		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/R_Bicep.uc",
+		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/SGameInfo.uc",
+		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/R_Shoulder.uc",
+		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/SAnimNodeSlotMirror.uc",
+		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/R_Thigh.uc",
+		"/C/Users/Albert/Desktop/LobbyCamera.uc",
+		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/S_Pawn.uc",
+		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/Wall.uc",
+		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/ShipPawn.uc",
+		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/Foot.uc",
+		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-12-PHPDynamicWebSitePgoramming/AccessingDB/DBFill.php",
+		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-12-PHPDynamicWebSitePgoramming/AccessingDB/ListDB.php",
+		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-12-PHPDynamicWebSitePgoramming/index.html",
+		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-12-PHPDynamicWebSitePgoramming/MMA Mania, UFC news, results, videos, rumors, fights.htm",
+		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-12-PHPDynamicWebSitePgoramming/References/index.htm",
+		"/C/Program Files/NetBeans 7.3.1/etc/netbeans.conf",
+		"/C/Users/Albert/Downloads/darkscintilla_and_autocomplete/UDKRFBXR.mcr",
+		"/M/Web Development/about.php",
+		"/M/Web Development/styles/layout.css",
+		"/N/Torrents/PIXOLOGIC_ZBRUSH_V4R6-XFORCE/Crack/install.txt",
+		"/C/Users/Albert/Dropbox/root/RCC_Classes/CSC-18A-JavaProgrammingObjects/Chapter7-Problems/79.txt",
+		"/C/Users/Albert/Downloads/darkscintilla_and_autocomplete/DarkScintilla_Autocomplete/MXS_EditorAbbrev.properties",
+		"/C/Users/Albert/Downloads/darkscintilla_and_autocomplete/DarkScintilla_Autocomplete/MXS_EditorUser.properties",
+		"/C/Users/Albert/Dropbox/root/RCC_Classes/CSC-18A-JavaProgrammingObjects/Chapter7-Problems/76-79.txt"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"for",
+			"form",
+			"<?",
+			"head",
+			"logo",
+			"div",
+			"get",
+			"form",
+			"dr",
+			"body",
+			"top-bar",
+			"address",
+			"color",
+			"color1",
+			"20px",
+			"php",
+			"main-nav",
+			"right",
+			"visible",
+			"playerKillSpree",
+			"            </",
+			"team-left",
+			"img",
+			"text",
+			"center",
+			"php_curl",
+			"==================================================",
+			"view_users",
+			"CamOffsetDistance",
+			"body",
+			"filelist",
+			"maxinifile",
+			"masthead",
+			"hero",
+			"masthead",
+			"parse",
+			"url is undefined",
+			"authUser",
+			"Current USers",
+			";\n",
+			"array",
+			"Current Users",
+			"doSurvey",
+			"takeSurvey",
+			"saveSurvey",
+			"doSurvey",
+			"createSurvey",
+			"label",
+			"input",
+			"regularRadios",
+			"radio",
+			"thesurvey"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 196.0,
+	"status_bar_visible": true
+}

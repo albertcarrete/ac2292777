@@ -14,7 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 	<div class="head">
-		<a href="./"><h1>Surveyor</h1></a>
+		<div class="logo">
+			<a href="./"><h1>Surveyor</h1></a>
+		</div>
 		<p>Survey Results</p>
 	</div>
 
@@ -58,7 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 else{
 ?>
 				<div class="head">
-					<a href="./"><h1>Surveyor</h1></a>
+					<div class="logo">
+						<a href="./"><h1>Surveyor</h1></a>
+					</div>
 					<p>Survey In Progress</p>
 				</div>
 <?php 

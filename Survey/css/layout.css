@@ -9,6 +9,7 @@
 @font-face{
 	font-family:'Blender';
 	src: url('../fonts/BlenderPro-Book.otf');
+	font-weight:normal;
 }
 @font-face{
 	font-family:'TradeGothic';
@@ -31,11 +32,14 @@
 ================================================== */
 .narrow{
 	margin:150px auto;
-	max-width:400px;
-	margin-top:100px;
+	max-width:440px;
+	margin-top:120px;
+}
+.narrow .logo{
+	width:100%;
 }
 .wide{
-	margin:40px auto 0px auto;
+	margin:39px auto 0px auto;
 }
 .top{
 	border-top:1px solid #4b4f50;
@@ -49,28 +53,41 @@
 .info-container .head{
 	background-color:#0d1925;
 	text-align:left;
+	min-height:79px;
 }
 .info-container .head h1{
 	text-align:center;
 }
-.info-container .subhead{
-	background-color: #0d141c;
-	padding:0 20px;
+
+.subhead 			{ background-color: #0d141c; padding:20px;}
+.wide .subhead 		{ }
+.wide .subhead h3 	{ text-align:left;}
+
+.narrow .subhead 	{ }
+.narrow .subhead h3 { text-align:center;}
+.narrow .subhead h4 { padding:40px; color:#ff5c40; text-align:center;}
+
+.profile{
+	background-color:#0d141c;
+}
+.profile h5{
+	text-align:center;
+	font-size:15px;
 }
 .info-container h1, .info-container h2, .info-container h3,.info-container h4,.info-container h5{
 	font-family:'Blender';
-	text-align:center;
 	color:#9ed3cd;
 	text-transform:uppercase;
 }
 .info-container h1{
 	font-size:50px;
-	line-height:60px;
-	margin-bottom:0px;
+	line-height:59px;
+	margin:10px 0;
 }
 .info-container h3{
-	padding:10px 0;
+	padding:0;
 	margin:0;
+	font-size:25px;
 }
 .info-container p{
 	text-align:center;
@@ -96,6 +113,7 @@
 }
 .info-container form{
 	padding:10px 30px;
+	background-color:#0b0b0b;
 }
 p.bullet{
 	padding:20px 0 20px 20px;
@@ -174,24 +192,30 @@ p.bullet{
 	color:#ff5c40;
 	text-decoration:none;
 }
-.info-container table{ background-color:transparent; }
+.info-container table{ background-color:transparent; margin:0; }
 .info-container table th{
-	background-color: transparent;
+	background-color: #0d1925;
 	font-family:'Blender';
-	font-size:16px;
+	text-rendering: optimizeLegibility;
+	-webkit-text-stroke:0.35px;
+	font-size:18px;
 	text-align:left;
 	border:none;
 	color:#80d2e0;
 	text-transform:uppercase;
+	padding:20px 0 20px 20px;
+
 }
 .info-container table th a{
 	color:#80d2e0;
+
 }
 .info-container table > a{
 	display:block;
 }
 .info-container table tbody > tr.alt{
 	font-size:14px;
+	background-color:#0d1925;
 }
 .info-container table tbody > tr.alt2{
 	background-color:#0d141c;
@@ -201,6 +225,7 @@ p.bullet{
 	background-color:transparent;
 	border:none;
 	color:#4f7c81;
+	padding:20px;
 }
 .info-container select{
 	-webkit-appearance: none;
@@ -257,7 +282,11 @@ p.bullet{
 }
 .results{
 	width:100%;
+	background-color: #0d141c;
 	padding:20px 0 0 0;
+}
+.results h4{
+	text-align:center;
 }
 .results img{
 	margin:30px auto;
@@ -299,10 +328,15 @@ p.bullet{
 	background-color:#fff;
 }
 .logo{
-	padding:0px 20px;
+	padding:0px 0px;
+	float:left;
+	width:30%;
 }
 .user{
-	width:40%;
+	float:left;
+	font-size:18px;
+	width:70%;
+	line-height:18px;
 
 }
 .admin{
@@ -310,18 +344,19 @@ p.bullet{
 
 }
 .nav{
-	margin:0 auto;
-	display:block;
 
 }
 .nav ul{
-	margin:0 auto;
+	margin:30px 0;
 }
 .nav li{
-	float:left;
+	display:inline;
 }
 .user li{
-	width:19%;
+	font-family:'Blender';
+	padding: 0 0 0 40px;
+}
+.user li a{
 
 }
 .admin li{

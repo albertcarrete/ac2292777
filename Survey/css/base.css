@@ -41,7 +41,7 @@ table 									{ border-collapse:collapse; border-spacing:0; }
 /***** Basic Styles *****/
 
 html 									{ overflow-y:scroll; overflow:-moz-scrollbars-vertical; }
-body									{ margin:0 0 0 0; padding:0; background-color:#0b0b0b; font:13px 'TradeGothic' sans-serif; color:#333; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:none; }
+body									{ margin:0 0 0 0; padding:0; background:url('../IMG/bg-grid.png') repeat top center;background-color:#0b0b0b; font:13px 'TradeGothic' sans-serif; color:#333; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:none; }
 
 /***** Typography *****/
 
