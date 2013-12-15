@@ -1,0 +1,68 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Savings Balance - Inputs</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+<div class="grid">
+	<div class="row">
+		<div class="c3">
+			<h4>Albert Carrete</h4>
+			<h5>Riverside City College</h5>
+			<h5>Assignment 6</h5>
+		</div>
+		<div class="c6">
+			<p class="strong"> 1) Create a form with inputs for a savings account balance, number of years and a range for interest rates such as 5 to 10%. Display a table that shows the balance by year for each interest rate.</p>
+			<p>2)  Create a form that asks for the rows and columns of a multiplication tables.  Size a display for the multiplication that is one larger in rows and cols to show the headings for the table.</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="c4">
+			<h5>Part I Inputs</h5>
+		</div>
+		<div class="c8">
+			<form action="SavingsBalance.php" method="get">
+
+			<label>Account Balance ($)</label>
+			<input name="actBal" type="text" />
+
+			<label for="">Number of Years</label>
+			<input name="numYears" type="text" />
+
+			<label for="">Interest Rate Range (Begin)</label>
+			<input name="IR1" type="text" />
+
+			<label for="">Interest Rate Range (End)</label>
+			<input name="IR2" type="text" />
+
+			<input name="submit" type="submit" />
+
+			</form>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="c4">
+			<h5>Part II Inputs</h5>
+		</div>
+		<div class="c8">
+			<form action="MultiTable.php" method="get">
+
+			<label>Number of Columms</label>
+			<input name="numCols" type="text" />
+
+			<label for="">Number of Rows</label>
+			<input name="numRows" type="text" />
+
+			<input name="submit" type="submit" />
+
+			</form>
+
+		</div>
+	</div>
+</div>
+	
+</body>
+</html>
