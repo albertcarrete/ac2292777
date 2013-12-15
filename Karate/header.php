@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
@@ -20,7 +21,6 @@
 	<div class="grid_12">
 	<div class="top-bar">
 		<ul>
-		<?php session_start(); ?>
 				<?php // Create a login/logout link:
 					if (isset($_SESSION['user_id'])) {
 						echo '<li>Logged in as '.$_SESSION['first_name'].$_SESSION['last_name']."</li>";
@@ -56,7 +56,9 @@
 
 			</ul>
 		</div>
-	<?php 					if(($_SESSION['isAdmin'])>0){ ?>
+<?php 	
+if(isset($_SESSION['isAdmin'])){
+if(($_SESSION['isAdmin'])>0){ ?>
 
 		<div class="admin-bar">
 			<ul>
@@ -68,7 +70,23 @@
 			</ul>
 			
 		</div>	
-<?php } ?>
+<?php } }
+if(isset($_SESSION['user_id'])){
+	if(($_SESSION['isAdmin'])==0){ ?>
+
+		<div class="admin-bar">
+			<ul>
+				<li>
+	          		<li><a href="./settings.php">Settings</a></li>							
+				</li>
+			</ul>
+			
+		</div>	
+<?php } } ?>
+
+
+
+
 	</div>
 
 
