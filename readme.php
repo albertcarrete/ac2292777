@@ -37,38 +37,38 @@
 				<tr>
 					<td>Data Types</td>
 					<td></td>
-					<td></td>
+					<td>header.php (41)</td>
 					<td>header.php (27)</td>
 				</tr>
 				<tr>
 					<td>Branch if</td>
 					<td>Login.php (6)</td>
-					<td></td>
+					<td>header.php (59)</td>
 					<td>header.php (28)</td>
 				</tr>
 				<tr>
 					<td>Branch if-else</td>
 					<td>login_functions.inc.php (40)</td>
-					<td></td>
+					<td>index.php (18)</td>
 					<td>index.php (41)</td>
 				</tr>
 				<tr>
 					<td>Branch Switch</td>
 					<td>view_users.php (44)</td>
-					<td></td>
+					<td>index.php (49)</td>
 					<td>index.php (72)</td>
 				</tr>
 				<tr>
 					<td>Loop for</td>
 					<td>photos.php(9)</td>
-					<td></td>
+					<td>createclass.php (73)</td>
 					<td>view_results.php (49)</td>
 				</tr>
 				<tr>
 					<td>Loop while</td>
 					<td>students.php(102)</td>
-					<td></td>
-					<td> my_surveys.php (47)</td>
+					<td>index.php (75)</td>
+					<td>my_surveys.php (47)</td>
 				</tr>
 				<tr>
 					<td>Loop do-while</td>
@@ -79,7 +79,7 @@
 				<tr>
 					<td>Array 1-dim</td>
 					<td>contact.php (33)</td>
-					<td></td>
+					<td>login.php (25)</td>
 					<td>login_functions.inc.php (41)</td>
 				</tr>
 				<tr>
@@ -109,13 +109,13 @@
 				<tr>
 					<td>Validation</td>
 					<td>contact.php (32-40)</td>
-					<td></td>
+					<td>register.php (19-28)</td>
 					<td>signup.php (29-37)</td>
 				</tr>
 				<tr>
 					<td>Reg expressions</td>
 					<td>contact.php (29)</td>
-					<td></td>
+					<td>register.php (14)</td>
 					<td>signup.php (25)</td>
 				</tr>
 				<tr>
@@ -127,25 +127,25 @@
 				<tr>
 					<td>Registration</td>
 					<td> signup.php</td>
-					<td></td>
+					<td> register.php</td>
 					<td>signup.php</td>
 				</tr>
 				<tr>
 					<td>Login/Cookies/Sessions</td>
 					<td>login.php</td>
-					<td></td>
+					<td>login.php</td>
 					<td>login.php</td>
 				</tr>
 				<tr>
 					<td>Update Info</td>
 					<td>edit_user.php</td>
-					<td></td>
+					<td>settings.php</td>
 					<td>settings.php</td>
 				</tr>
 				<tr>
 					<td>Display Results</td>
 					<td></td>
-					<td></td>
+					<td>view_cart.php</td>
 					<td>view_results.php</td>
 				</tr>
 				<tr>
@@ -157,7 +157,7 @@
 				<tr>
 					<td>Login/Cookies/Sessions</td>
 					<td>login.php</td>
-					<td></td>
+					<td>login.php</td>
 					<td>login.php</td>
 				</tr>
 				<tr>
