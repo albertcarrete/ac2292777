@@ -47,22 +47,6 @@
 	},
 	"buffers":
 	[
-		{
-			"contents": "<?php include ('./header.php');\n?>\n<div class=\"row\">\n	<div class=\"grid_12\">\n\n		<div class=\"info-container narrow top\">	\n			<div class=\"head\">\n				<div class=\"logo\">\n					<a href=\"./\"><h1>Surveyor</h1></a>\n				</div>\n				<p>Create Survey as <?php echo $_SESSION['username']; ?></p>				\n			</div> <!-- end head -->\n\n<?php \n// Check for form submission:\nif ($_SERVER['REQUEST_METHOD'] == 'POST') {\n	\n	//Required documents\n	require ('./login_functions.inc.php');\n	require ('./mysqli_connect.php');\n\n\n	// Check the login:\n	// list ($check, $data) = check_login($dbc, $_SESSION['email'], $_SESSION['pass']);\n	\n	// $_SESSION['username'] = $data['username'];\n\n	$errors = array(); // Initialize an error array.\n\n\n\n	if(!empty($_POST['SurveyType'])){\n		if($_POST['SurveyType'] === 'Single'){\n			$part=1; //set variable to part 1 so that we access the first step of the survey process\n			include('./surveysingle.inc.php');\n		}\n			else{\n				include('./surveymulti.inc.php');\n		}\n	}\n\n\n\n	elseif((!empty($_POST['title'])) && (!($_POST['responseType'] == 'FreeResponse'))){\n		$_SESSION['tempSurveyData']['title'] = $_POST['title'];\n		$_SESSION['tempSurveyData']['responseType'] = $_POST['responseType'];\n\n		$part=2;\n		include('./surveysingle.inc.php');			\n	}\n\n	if(!empty($_POST['responseType']) && $_POST['responseType'] == 'FreeResponse'){\n		$_SESSION['tempSurveyData']['title'] = $_POST['title'];\n		$_SESSION['tempSurveyData']['responseType'] = $_POST['responseType'];		\n	}\n\n	//SUBMIT RESPONSES - FINAL STEP\n	if(!empty($_POST['Responses']) || ($_POST['responseType'] == 'FreeResponse')){\n\n		$title 			= $_SESSION['tempSurveyData']['title'];\n		$responseType 	= $_SESSION['tempSurveyData']['responseType'];\n\n\n		$owner 			= $_SESSION['username'];\n		$responses 		= $_POST['Responses'];\n\n		preg_match_all(\"/[^,\\s][^\\,]*[^,\\s]*/\", $_POST['Responses'], $output_array);\n		$responseArray = array();\n		$int = 1;\n\n			foreach($output_array[0] as $value){\n				$responseArray['Response'.$int]['Users'] = '';\n				$int+=1;\n			}\n\n		$user_responses = serialize( $responseArray );\n\n\n	if (empty($errors)) { // If everything's OK.\n	\n		// Register the surey in the database...\n		\n		// Make the query:\n		$q = \"INSERT INTO `$tablename`.`ac2292777_survey_surveys` (owner, title, questions, responses,reg_date,response_type) VALUES ('$owner', '$title', '$title', '$responses', NOW(),'$responseType' )\";			\n		\n		$r = @mysqli_query ($dbc, $q); \n		// Run the query.\n		if ($r) { // If it ran OK. ?>\n		\n		<div class=\"results\">\n			<h4>Survey Created Successfully</h4>\n			<img src=\"./img/success.png\" alt=\"\">\n			<a class=\"result-button\" href=\"./\">Dashboard</a>\n			<a class =\"result-button\" href='./my_surveys.php'>My Surveys</a>\n			<div class=\"clear\"></div>\n		</div>\n\n<?php		} else { // If it did not run OK.\n			\n			// Public message:\n			echo '<h1>System Error</h1>\n			<p class=\"error\">You could not be registered due to a system error. We apologize for any inconvenience.</p>'; \n			\n			// Debugging message:\n			echo '<p>' . mysqli_error($dbc) . '<br /><br />Query: ' . $q . '</p>';\n						\n		} // End of if ($r) IF.\n		\n		mysqli_close($dbc); // Close the database connection.\n\n		// Include the footer and quit the script:\n		exit();\n		\n	} else { // Report the errors.\n	\n		// echo '<h1>Error!</h1>';\n		foreach ($errors as $msg) { // Print each error.\n			echo \"<p class='error'> $msg</p>\\n\";\n		}		\n	} // End of if (empty($errors)) IF.\n	\n	mysqli_close($dbc); // Close the database connection.\n\n\n\n		}\n		else{\n			echo\"<p>Enountered a System Error, please try again\";\n		}\n\n\n} // End of the main Submit conditional.\nelse{\n?>\n			<form action=\"createsurvey.php\" method=\"post\" autocomplete=\"off\">\n					<div class=\"mainselection\">\n						<select name=\"SurveyType\" id=\"input7\">\n						    <option value=\"Single\">Single Question</option>\n						    <option value=\"Multi\">Multi-Question</option>\n						</select>\n					</div>\n			<p>Select the type of survey</p>\n				<div class=\"clear\"></div>	\n\n				<input type=\"submit\" name=\"submit\" value=\"Next\" />\n				<div class=\"clear\"></div>	\n			</form>\n\n<?php }?>\n		</div>\n	</div>\n</div>\n<?php include ('./footer.php'); ?>",
-			"settings":
-			{
-				"buffer_size": 4091,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "header.php",
-			"settings":
-			{
-				"buffer_size": 830,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -124,6 +108,8 @@
 	},
 	"file_history":
 	[
+		"/C/xampp/htdocs/ac2292777/Survey/header.php",
+		"/C/xampp/htdocs/Survey/header.php",
 		"/C/xampp/htdocs/Survey/settings.php",
 		"/C/xampp/htdocs/Survey/view_results.php",
 		"/C/xampp/htdocs/Survey/my_surveys.php",
@@ -134,7 +120,6 @@
 		"/C/xampp/htdocs/Survey/navbar.php",
 		"/C/xampp/htdocs/Survey/index.php",
 		"/C/xampp/htdocs/Survey/login_page.inc.php",
-		"/C/xampp/htdocs/Survey/header.php",
 		"/C/xampp/htdocs/Survey/signup.php",
 		"/C/xampp/htdocs/Survey/login.php",
 		"/C/xampp/htdocs/Survey/logout.php",
@@ -250,8 +235,7 @@
 		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/SGameInfo.uc",
 		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/R_Shoulder.uc",
 		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/SAnimNodeSlotMirror.uc",
-		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/R_Thigh.uc",
-		"/C/Users/Albert/Desktop/LobbyCamera.uc"
+		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/R_Thigh.uc"
 	],
 	"find":
 	{
@@ -343,61 +327,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"settings":
-					{
-						"buffer_size": 4091,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								350,
-								350
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "header.php",
-					"settings":
-					{
-						"buffer_size": 830,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								405,
-								405
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
