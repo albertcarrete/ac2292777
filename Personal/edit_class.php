@@ -1,7 +1,7 @@
 <?php include ('./header.php'); ?>
 <div class="class-view">
 <div class="row">
-	<div class="grid_8">
+	<div class="grid_8 offset_2">
 		<?php 
 
 if (isset($_SESSION['user_id'])) { 

@@ -64,8 +64,8 @@ if (isset($_SESSION['user_id'])) { ?>
 	
 	$user_id = $_SESSION['user_id'];
 
-	$selectSubjects 		= "SELECT title FROM `$tablename`.`ac2292777_personal_subjects`";	
-	$selectSubCategories 	= "SELECT subcategory_id,title,parent_subject FROM `$tablename`.`ac2292777_personal_subcategories`";		
+	$selectSubjects 		= "SELECT subject_id,title FROM `$tablename`.`ac2292777_personal_subjects`";	
+	$selectSubCategories 	= "SELECT subcategory_id,title,parent_id FROM `$tablename`.`ac2292777_personal_subcategories`";		
 
 	$querySubjects		= @mysqli_query ($dbc, $selectSubjects); // Run the query.
 	$querySubCategories		= @mysqli_query ($dbc, $selectSubCategories); // Run the query.
@@ -81,8 +81,8 @@ if (isset($_SESSION['user_id'])) { ?>
 
 	while ($subCategories = mysqli_fetch_array($querySubCategories, MYSQLI_ASSOC)){ 
 
-			if($subjects['title']==$subCategories['parent_subject']){?>
-				<li><a href="./view_subject.php?id=<?php echo $subCategories['subcategory_id']; ?>"><?php echo $subCategories['title']; ?></a></li>
+			if($subjects['subject_id']==$subCategories['parent_id']){?>
+				<li><a href="./view_subject.php?id=<?php echo $subCategories['parent_id']; ?>"><?php echo $subCategories['title']; ?></a></li>
 
 			<?php }	?>
 

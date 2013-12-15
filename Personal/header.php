@@ -1,3 +1,11 @@
+<?php
+
+if(!isset($_SESSION)){
+
+    session_start();
+}
+
+?>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
@@ -27,7 +35,7 @@
     else{
 
     }
-session_start(); ?>
+    ?>
 <?php 
 $debug=false;
 	if($debug == true){
@@ -50,7 +58,10 @@ $jem = basename($_SERVER['REQUEST_URI']);
 
 if (isset($_SESSION['user_id']) && $showHeader ==true) {
 
-	$cartsize = sizeof($_SESSION['cart']);
+	if(isset($_SESSION['cart'])){
+		$cartsize = sizeof($_SESSION['cart']);
+
+	}
 
  ?>
 
@@ -63,7 +74,17 @@ if (isset($_SESSION['user_id']) && $showHeader ==true) {
 <div class="offset_4 grid_1">
 						<a class="cart" href="view_cart.php">
 							<img src="./images/cart.png" alt="">
-							<span class="quantity-cart"><?php echo $cartsize; ?></span>
+							<span class="quantity-cart">
+								<?php 
+							if(isset($_SESSION['cart'])){
+								echo $cartsize; 
+							}
+							else{
+								echo "0";
+							}
+
+								?>
+							</span>
 						</a>	
 </div>
 		<div class="grid_3">

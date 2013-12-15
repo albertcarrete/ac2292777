@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"dr",
+				"dr"
+			],
+			[
+				"title",
+				"title"
+			],
+			[
 				"query",
 				"queryCheckResponse"
 			],
@@ -40,58 +48,18 @@
 	"buffers":
 	[
 		{
-			"file": "header.php",
+			"contents": "<?php include ('./header.php');\n?>\n<div class=\"row\">\n	<div class=\"grid_12\">\n\n		<div class=\"info-container narrow top\">	\n			<div class=\"head\">\n				<div class=\"logo\">\n					<a href=\"./\"><h1>Surveyor</h1></a>\n				</div>\n				<p>Create Survey as <?php echo $_SESSION['username']; ?></p>				\n			</div> <!-- end head -->\n\n<?php \n// Check for form submission:\nif ($_SERVER['REQUEST_METHOD'] == 'POST') {\n	\n	//Required documents\n	require ('./login_functions.inc.php');\n	require ('./mysqli_connect.php');\n\n\n	// Check the login:\n	// list ($check, $data) = check_login($dbc, $_SESSION['email'], $_SESSION['pass']);\n	\n	// $_SESSION['username'] = $data['username'];\n\n	$errors = array(); // Initialize an error array.\n\n\n\n	if(!empty($_POST['SurveyType'])){\n		if($_POST['SurveyType'] === 'Single'){\n			$part=1; //set variable to part 1 so that we access the first step of the survey process\n			include('./surveysingle.inc.php');\n		}\n			else{\n				include('./surveymulti.inc.php');\n		}\n	}\n\n\n\n	elseif((!empty($_POST['title'])) && (!($_POST['responseType'] == 'FreeResponse'))){\n		$_SESSION['tempSurveyData']['title'] = $_POST['title'];\n		$_SESSION['tempSurveyData']['responseType'] = $_POST['responseType'];\n\n		$part=2;\n		include('./surveysingle.inc.php');			\n	}\n\n	if(!empty($_POST['responseType']) && $_POST['responseType'] == 'FreeResponse'){\n		$_SESSION['tempSurveyData']['title'] = $_POST['title'];\n		$_SESSION['tempSurveyData']['responseType'] = $_POST['responseType'];		\n	}\n\n	//SUBMIT RESPONSES - FINAL STEP\n	if(!empty($_POST['Responses']) || ($_POST['responseType'] == 'FreeResponse')){\n\n		$title 			= $_SESSION['tempSurveyData']['title'];\n		$responseType 	= $_SESSION['tempSurveyData']['responseType'];\n\n\n		$owner 			= $_SESSION['username'];\n		$responses 		= $_POST['Responses'];\n\n		preg_match_all(\"/[^,\\s][^\\,]*[^,\\s]*/\", $_POST['Responses'], $output_array);\n		$responseArray = array();\n		$int = 1;\n\n			foreach($output_array[0] as $value){\n				$responseArray['Response'.$int]['Users'] = '';\n				$int+=1;\n			}\n\n		$user_responses = serialize( $responseArray );\n\n\n	if (empty($errors)) { // If everything's OK.\n	\n		// Register the surey in the database...\n		\n		// Make the query:\n		$q = \"INSERT INTO `$tablename`.`ac2292777_survey_surveys` (owner, title, questions, responses,reg_date,response_type) VALUES ('$owner', '$title', '$title', '$responses', NOW(),'$responseType' )\";			\n		\n		$r = @mysqli_query ($dbc, $q); \n		// Run the query.\n		if ($r) { // If it ran OK. ?>\n		\n		<div class=\"results\">\n			<h4>Survey Created Successfully</h4>\n			<img src=\"./img/success.png\" alt=\"\">\n			<a class=\"result-button\" href=\"./\">Dashboard</a>\n			<a class =\"result-button\" href='./my_surveys.php'>My Surveys</a>\n			<div class=\"clear\"></div>\n		</div>\n\n<?php		} else { // If it did not run OK.\n			\n			// Public message:\n			echo '<h1>System Error</h1>\n			<p class=\"error\">You could not be registered due to a system error. We apologize for any inconvenience.</p>'; \n			\n			// Debugging message:\n			echo '<p>' . mysqli_error($dbc) . '<br /><br />Query: ' . $q . '</p>';\n						\n		} // End of if ($r) IF.\n		\n		mysqli_close($dbc); // Close the database connection.\n\n		// Include the footer and quit the script:\n		exit();\n		\n	} else { // Report the errors.\n	\n		// echo '<h1>Error!</h1>';\n		foreach ($errors as $msg) { // Print each error.\n			echo \"<p class='error'> $msg</p>\\n\";\n		}		\n	} // End of if (empty($errors)) IF.\n	\n	mysqli_close($dbc); // Close the database connection.\n\n\n\n		}\n		else{\n			echo\"<p>Enountered a System Error, please try again\";\n		}\n\n\n} // End of the main Submit conditional.\nelse{\n?>\n			<form action=\"createsurvey.php\" method=\"post\" autocomplete=\"off\">\n					<div class=\"mainselection\">\n						<select name=\"SurveyType\" id=\"input7\">\n						    <option value=\"Single\">Single Question</option>\n						    <option value=\"Multi\">Multi-Question</option>\n						</select>\n					</div>\n			<p>Select the type of survey</p>\n				<div class=\"clear\"></div>	\n\n				<input type=\"submit\" name=\"submit\" value=\"Next\" />\n				<div class=\"clear\"></div>	\n			</form>\n\n<?php }?>\n		</div>\n	</div>\n</div>\n<?php include ('./footer.php'); ?>",
 			"settings":
 			{
-				"buffer_size": 830,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "<?php \n\n// = = = = = = = = = = = = = \n// Check for a session user\n// = = = = = = = = = = = = = \nif (isset($_SESSION['user_id'])) { ?>\n\n	<div class=\"row\">	\n		<div class=\"grid_12\">\n			<div class=\"info-container wide top\">	\n				<div class=\"head\">\n					<div class=\"logo\">\n					<a href=\"./\"><h1>Surveyor</h1></a>\n					</div>\n<!-- IF USER IS AN ADMIN -->					\n<?php if($_SESSION['isAdmin'] > 0){ ?>\n					<div class=\"nav admin\">\n						<ul>\n							<li><a href=\"./\">Dashboard</a></li>\n							<li><a href=\"./createsurvey.php\">Create Survey</a></li>\n							<li><a href=\"./my_surveys.php\">Edit Surveys</a></li>\n							<li><a href=\"./my_surveys.php\">Edit Users</a></li>\n							<li><a href=\"./settings.php\">Settings</a></li>\n						</ul>\n					</div>\n	<?php }\n	else{ ?>\n					<div class=\"nav user\">\n						<ul>\n							<li><a href=\"./\">Dashboard</a></li>\n							<li><a href=\"./createsurvey.php\">Create Survey</a></li>\n							<li><a href=\"./my_surveys.php\">My Surveys</a></li>\n							<li><a href=\"./settings.php\">Settings</a></li>\n						</ul>\n					</div>\n	<?php } ?>\n					<div class=\"clear\"></div>\n				</div>\n			</div>\n		</div>\n<!-- \n\n// ====================================================================================\n//\n//	ACTIVE SURVEYS\n//	- Section of the dashboard that displays all surveys to the user.\n//\n// ====================================================================================\n -->\n<div class=\"grid_9\">\n	<div class=\"info-container wide\">\n		<div class=\"subhead\">\n			<h3>Active Surveys</h3>\n		</div>\n			\n<?php require ('./mysqli_connect.php'); \n\n	// Number of records to show per page:\n	$display = 10;\n\n	// Determine how many pages there are...\n	if (isset($_GET['p']) && is_numeric($_GET['p'])) { // Already been determined.\n\n		$pages = $_GET['p'];\n\n	} else { // Need to determine.\n\n	 	// Count the number of records:\n		$q = \"SELECT COUNT(survey_id) FROM `$tablename`.`ac2292777_survey_surveys`\";\n		$r = @mysqli_query ($dbc, $q);\n		$row = @mysqli_fetch_array ($r, MYSQLI_NUM);\n		$records = $row[0];\n		// Calculate the number of pages...\n		if ($records > $display) { // More than 1 page.\n			$pages = ceil ($records/$display);\n		} else {\n			$pages = 1;\n		}\n	} // End of p IF.\n\n	// Determine where in the database to start returning results...\n	if (isset($_GET['s']) && is_numeric($_GET['s'])) {\n		$start = $_GET['s'];\n	} else {\n		$start = 0;\n	}\n\n	// Determine the sort...\n	// Default is by registration date.\n	$sort = (isset($_GET['sort'])) ? $_GET['sort'] : 'rd';\n\n	// Determine the sorting order:\n	switch ($sort) {\n		case 'ln':\n			$order_by = 'last_name ASC';\n			break;\n		case 'fn':\n			$order_by = 'first_name ASC';\n			break;\n		case 'rd':\n			$order_by = 'registration_date ASC';\n			break;\n		default:\n			$order_by = 'registration_date ASC';\n			$sort = 'rd';\n			break;\n	}\n	\n\n	// Query Constants\n	// ======================================\n	$user_id = $_SESSION['user_id'];\n\n\n	// Query SELECT's\n	// ======================================\n	$checkResponse 	= \"SELECT survey_id FROM `$tablename`.`ac2292777_survey_responses` WHERE user_id=$user_id\";		\n	$q 				= \"SELECT owner, title, DATE_FORMAT(reg_date, '%M %d, %Y') AS dr, survey_id FROM `$tablename`.`ac2292777_survey_surveys`\";	\n\n	// Query Calls\n	// ======================================\n	$queryCheckResponse 	= @mysqli_query ($dbc, $checkResponse); // Run the query.\n	$r 						= @mysqli_query ($dbc, $q); // Run the query.\n\n	// Table header:\n	echo '<table align=\"center\" cellspacing=\"0\" cellpadding=\"5\" width=\"75%\">\n	<tr>\n		<th><a href=\"view_users.php?sort=ln\">Title</a></th>\n		<th><a href=\"view_users.php?sort=fn\">Author</a></th>\n		<th><a href=\"view_users.php?sort=rd\">Created</a></th>\n		<th>Take</th>\n	</tr>';\n\n	while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)){\n\n		$style = ($style=='alt' ? 'alt2' : 'alt');\n		echo '<tr class=\"' . $style . '\">\n		<td align=\"left\">' . $row['title'] . '</td>\n		<td align=\"left\">' . $row['owner'] . '</td>\n		<td align=\"left\">' . $row['dr'] . '</td>';\n\n		mysqli_data_seek($queryCheckResponse,0); // reset fetch\n		while( $rowtwo = mysqli_fetch_array($queryCheckResponse, MYSQLI_ASSOC)){\n\n\n			if($rowtwo['survey_id']==$row['survey_id']){ // If there is a survey_id match, break loop and report a matchfound\n				$matchfound = true;\n				break;\n			}\n			else{\n				$matchfound = false;\n			}\n\n		}\n\n		if($matchfound == true){\n			echo'<td class='.$row['survey_id'].'vs'.$rowtwo['survey_id'].' align=\"left\"><a href=\"view_results.php?id=' . $row['survey_id'] . '\">Results</a></td>';\n\n		}\n		else{\n				echo'<td class='.$row['survey_id'].'vs'.$rowtwo['survey_id'].' align=\"left\"><a href=\"view_survey.php?id=' . $row['survey_id'] . '\">Take</a></td>';\n\n		}\n	}\necho '</table>';\n\nmysqli_free_result ($r);\nmysqli_free_result ($queryCheckResponse);\n\nmysqli_close($dbc);\n		?>\n\n\n\n		</div>\n	</div>\n\n\n\n\n	<div class=\"grid_3\">\n		<div class=\"info-container wide\">\n				<div class=\"subhead\">\n				<h3>Profile</h3>\n			</div>\n			<img class=\"profile_picture\" src=\"./IMG/profile_default.png\" alt=\"\">\n			<h5><?php echo $_SESSION['username']; ?></h5>\n\n		</div>\n	</div>\n	<div class=\"grid_12\">\n		<div class=\"info-container wide top\">	\n			<p><a href=\"./logout.php\">Log out of <?php echo $_SESSION['first_name']; ?> <?php echo $_SESSION['last_name']; ?> (<?php echo $_SESSION['username']; ?> )</a></p>			\n\n		</div>\n	</div>\n</div>\n\n<?php } else {  // tied to isset($_SESSION('user_id'))\n\n// Check if the form has been submitted:\nif ($_SERVER['REQUEST_METHOD'] == 'POST') {\n\n	echo \"POST made\";\n	// Need two helper files:\n	require ('./login_functions.inc.php');\n	require ('./mysqli_connect.php');		\n	// Check the login:\n	list ($check, $data) = check_login($dbc, $_POST['email'], $_POST['pass']);\n	\n	if ($check) { // OK!\n\n\n		// Set the session data:\n		$_SESSION['user_id'] 		= $data['user_id'];\n		$_SESSION['username'] 		= $data['username'];\n		$_SESSION['first_name'] 	= $data['first_name'];\n		$_SESSION['last_name']		= $data['last_name'];\n		$_SESSION['isAdmin'] 		= $data['isAdmin'];\n		$_SESSION['title'] 			= \"Default Title\";\n		// Store the HTTP_USER_AGENT:\n		$_SESSION['agent'] = md5($_SERVER['HTTP_USER_AGENT']);\n\n		// Redirect:\n		redirect_user('loggedin.php');\n			\n	} else { // Unsuccessful!\n\n		// Assign $data to $errors for login_page.inc.php:\n		$errors = $data;\n\n	}\n		\n	mysqli_close($dbc); // Close the database connection.\n\n} // End of the main submit conditional.\n\n?>\n\n<?php include ('./login_page.inc.php'); ?>\n\n<?php } ?>\n\n<?php include ('./footer.php'); ?>",
-			"settings":
-			{
-				"buffer_size": 6413,
+				"buffer_size": 4091,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "login_page.inc.php",
+			"file": "header.php",
 			"settings":
 			{
-				"buffer_size": 1257,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "index.php",
-			"settings":
-			{
-				"buffer_size": 6518,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "login_functions.inc.php",
-			"settings":
-			{
-				"buffer_size": 2330,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "css/layout.css",
-			"settings":
-			{
-				"buffer_size": 7431,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "css/base.css",
-			"settings":
-			{
-				"buffer_size": 9688,
+				"buffer_size": 830,
 				"line_ending": "Unix"
 			}
 		}
@@ -156,8 +124,24 @@
 	},
 	"file_history":
 	[
+		"/C/xampp/htdocs/Survey/settings.php",
+		"/C/xampp/htdocs/Survey/view_results.php",
+		"/C/xampp/htdocs/Survey/my_surveys.php",
+		"/C/xampp/htdocs/Survey/view_users.php",
+		"/C/xampp/htdocs/Survey/surveysingle.inc.php",
 		"/C/xampp/htdocs/Survey/createsurvey.php",
+		"/C/xampp/htdocs/Survey/css/layout.css",
+		"/C/xampp/htdocs/Survey/navbar.php",
 		"/C/xampp/htdocs/Survey/index.php",
+		"/C/xampp/htdocs/Survey/login_page.inc.php",
+		"/C/xampp/htdocs/Survey/header.php",
+		"/C/xampp/htdocs/Survey/signup.php",
+		"/C/xampp/htdocs/Survey/login.php",
+		"/C/xampp/htdocs/Survey/logout.php",
+		"/C/xampp/htdocs/Survey/login_functions.inc.php",
+		"/C/xampp/htdocs/Survey/css/base.css",
+		"/C/xampp/htdocs/Survey/mysqli_connect.php",
+		"/C/xampp/htdocs/Survey/view_survey.php",
 		"/Applications/AMPPS/www/ac2292777/Survey/css/layout.css",
 		"/Applications/AMPPS/www/ac2292777/Survey/my_surveys.php",
 		"/Applications/AMPPS/www/ac2292777/Survey/login_functions.inc.php",
@@ -267,27 +251,11 @@
 		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/R_Shoulder.uc",
 		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/SAnimNodeSlotMirror.uc",
 		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/R_Thigh.uc",
-		"/C/Users/Albert/Desktop/LobbyCamera.uc",
-		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/S_Pawn.uc",
-		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/Wall.uc",
-		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/ShipPawn.uc",
-		"/M/UDK/UDK-PS/Development/Src/ProjectS/Classes/Foot.uc",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-12-PHPDynamicWebSitePgoramming/AccessingDB/DBFill.php",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-12-PHPDynamicWebSitePgoramming/AccessingDB/ListDB.php",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-12-PHPDynamicWebSitePgoramming/index.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-12-PHPDynamicWebSitePgoramming/MMA Mania, UFC news, results, videos, rumors, fights.htm",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-12-PHPDynamicWebSitePgoramming/References/index.htm",
-		"/C/Program Files/NetBeans 7.3.1/etc/netbeans.conf",
-		"/C/Users/Albert/Downloads/darkscintilla_and_autocomplete/UDKRFBXR.mcr",
-		"/M/Web Development/about.php",
-		"/M/Web Development/styles/layout.css",
-		"/N/Torrents/PIXOLOGIC_ZBRUSH_V4R6-XFORCE/Crack/install.txt",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CSC-18A-JavaProgrammingObjects/Chapter7-Problems/79.txt",
-		"/C/Users/Albert/Downloads/darkscintilla_and_autocomplete/DarkScintilla_Autocomplete/MXS_EditorAbbrev.properties"
+		"/C/Users/Albert/Desktop/LobbyCamera.uc"
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
@@ -301,6 +269,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"0b0b0b",
 			"head",
 			"logo",
 			"wide",
@@ -374,48 +343,22 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "header.php",
 					"settings":
 					{
-						"buffer_size": 830,
+						"buffer_size": 4091,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								588,
-								588
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"settings":
-					{
-						"buffer_size": 6413,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1388,
-								1108
+								350,
+								350
 							]
 						],
 						"settings":
@@ -430,134 +373,26 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "login_page.inc.php",
+					"buffer": 1,
+					"file": "header.php",
 					"settings":
 					{
-						"buffer_size": 1257,
+						"buffer_size": 830,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								206,
-								206
+								405,
+								405
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "index.php",
-					"settings":
-					{
-						"buffer_size": 6518,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5205,
-								5205
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1116.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "login_functions.inc.php",
-					"settings":
-					{
-						"buffer_size": 2330,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "css/layout.css",
-					"settings":
-					{
-						"buffer_size": 7431,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3822,
-								3822
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1419.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "css/base.css",
-					"settings":
-					{
-						"buffer_size": 9688,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1266,
-								1266
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 156.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},

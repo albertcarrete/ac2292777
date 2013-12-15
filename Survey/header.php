@@ -6,7 +6,6 @@ if(!isset($_SESSION)){
 }
 
 ?>
-
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
@@ -19,15 +18,6 @@ if(!isset($_SESSION)){
 </head>
 <body>
 
-<?php
-
-  $page = basename($_SERVER['REQUEST_URI']);
-    if ($page == 'index.php' || $page == "/" || $page == '' || $page=='Survey') {
-    }
-    else{
-
-    }
- ?>
 <?php 
 
 	$debug=false;

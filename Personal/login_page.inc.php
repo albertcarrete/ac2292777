@@ -1,4 +1,3 @@
-<?php include ('./header.php'); ?>
   <div class="row"> 
     <div class="grid_12">
       <a href="./index.php"><img class="logo" src="./images/logo.png" alt=""></a>

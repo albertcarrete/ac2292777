@@ -1,3 +1,5 @@
+<?php include ('./header.php'); ?>
+
 <?php # Script 12.12 - login.php #4
 // This page processes the login form submission.
 // The script now stores the HTTP_USER_AGENT value for added security.
@@ -20,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ini_set('session.gc_maxlifetime',5);
     ini_set('session.gc_probability',1);
     // Set the session data:
-    session_start();
     $_SESSION['user_id']      = $data['user_id'];
     $_SESSION['username']     = $data['username'];
     $_SESSION['email']        = $data['email'];

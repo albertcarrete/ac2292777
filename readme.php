@@ -10,6 +10,16 @@
 <body>
 	<div class="row">
 		<div class="grid_12">
+			<h1>Albert Carrete</h1>
+			<h4>Riverside City College</h4>
+			<h4>PHP Dynamic Web Site Program</h4>
+
+		</div>
+		<a href="./karate"><div class="grid_12 project karate"><h1>Isshinryu Karate</h1></div></a><br>
+		<a href="./survey"><div class="grid_12 project survey"><h1>Surveyor</h1></div></a>
+		<a href="./personal"><div class="grid_12 project personal"><h1>Personal</h1></div></a>
+
+		<div class="grid_12">
 			<table>
 				<tr>
 					<th>What to Include</th>
