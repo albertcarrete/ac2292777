@@ -76,7 +76,7 @@
 					<td>Array 2-dim</td>
 					<td></td>
 					<td></td>
-					<td></td>
+					<td>surveysingle.inc.php (20)</td>
 				</tr>
 				<tr>
 					<td>Objects PHP</td>
@@ -166,13 +166,13 @@
 					<td>Edit</td>
 					<td>edit_user.php</td>
 					<td></td>
-					<td></td>
+					<td>edit_user.php</td>
 				</tr>
 				<tr>
 					<td>Delete</td>
 					<td>delete_user.php</td>
 					<td></td>
-					<td></td>
+					<td>edit_user.php</td>
 				</tr>
 				<tr>
 					<td class="group">Database</td>
