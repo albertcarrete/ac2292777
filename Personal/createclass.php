@@ -77,7 +77,7 @@ else{
   ?>
           </div>
 			<h4>Class Title</h4>
-			<input id="title" name="title" type="text" size="20" maxlength="30" class="w-input input" autocomplete="off" placeholder="Untitled Class"value="<?php if (isset($_POST['title'])) echo $_POST['title']; ?>"/>
+			<input id="title" name="title" type="text" size="50" maxlength="50" class="w-input input" autocomplete="off" placeholder="Untitled Class"value="<?php if (isset($_POST['title'])) echo $_POST['title']; ?>"/>
           	<h4>Category</h4>
           	<input id="name"  name="category" class="w-input input" type="text" placeholder="" autocomplete="off" value="<?php if (isset($_POST['category'])) echo $_POST['category']; ?>">
             <h4>Description</h4>

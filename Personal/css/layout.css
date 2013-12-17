@@ -27,6 +27,15 @@
 	#Media Queries
 	#Font-Face */
 
+.inside{
+   background-color:#ddd;
+}
+.outside{
+   background-color:#00aaff;
+
+}
+
+
   /*GENERIC STYLES*/
   .text-center{
     text-align:center;
@@ -366,14 +375,19 @@ input:-webkit-autofill {
   float:left;
   background-color:#fff;
   margin:20px 2.5%;
-  padding:20px;
   border-radius:5px;
+}
+.subjects .head{
+  background-color:#ebebeb;
+  padding:20px;
+  text-align:center;
+  border-bottom:1px solid #BEBEBE;
 }
 .subjects h3{
   font-family:TradeGothic;
   font-size:14px;
   line-height:16px;
-  margin:0 0 10px 0;
+  margin:0 0 0px 0;
 }
 .subjects ul{
   margin:0;
@@ -381,7 +395,7 @@ input:-webkit-autofill {
 .subjects ul li {
   background:none;
   margin:0;
-  padding:0;
+  padding:10px 20px;
 }
 .subjects ul li span{
   line-height:16px;
@@ -432,7 +446,8 @@ a.class:hover{
 .class-view{
   margin:0px auto;
   background-color:#ebebeb;
-  min-height:700px;
+  min-height:1000px;
+  padding:40px 0;
 }
 .class h4{
     font-family:TradeGothic;
@@ -454,7 +469,7 @@ a.class:hover{
   width:30%;
 }
 .class .meta{
-  margin-top:10px;
+  margin-top:5px;
   padding:5px 0 0 0;
   border-top:1px solid #999;
 }
@@ -491,7 +506,7 @@ form.createclass textarea{
   margin:0 0 0 0;
   background-color:#fff;
 }
-.head{
+.entry .head{
   margin:20px 0 0 0;
   padding:20px 0px;
 }

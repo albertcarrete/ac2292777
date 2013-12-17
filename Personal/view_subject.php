@@ -24,7 +24,16 @@
 	$queryClasses	= @mysqli_query ($dbc, $selectClasses); // Run the query.
 		
 	while ($classes = mysqli_fetch_array($queryClasses, MYSQLI_ASSOC)){ 
-		if($id == $classes['parent_subject_id']){?>
+		if($id == $classes['parent_subject_id']){
+
+			$parent_subject_id 			= $classes['parent_subject_id'];
+			$selectSubCategories 		= "SELECT title FROM `$tablename`.`ac2292777_personal_subcategories` WHERE subcategory_id = $parent_subject_id";
+			$querySubCategories			= @mysqli_query ($dbc, $selectSubCategories); // Run the query.
+			$subCategories 				= mysqli_fetch_array($querySubCategories,MYSQLI_ASSOC);
+
+?>
+
+		<h3>Viewing <?php echo $subCategories['title']; ?> Courses </h3>
 
 		<a class="class" href="view_class.php?id=<?php echo $classes['class_id']; ?>">
 	

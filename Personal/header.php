@@ -21,8 +21,22 @@ if(!isset($_SESSION)){
 		<script type="text/javascript" src="js/modernizr.custom.79639.js"></script> 
 		<noscript><link rel="stylesheet" type="text/css" href="css/noJS.css" /></noscript>    
 </head>
-<body>
+<?php 
+	if (isset($_SESSION['user_id'])) {
+		$page = "inside";
+	}
+	else{
+		$page = "outside";
+	}
 
+?>
+
+
+
+<body class="<?php echo $page; ?>">
+<?php include ('./classes.php');
+
+ ?>
 <?php
 
   $page = basename($_SERVER['REQUEST_URI']);
@@ -58,8 +72,9 @@ $jem = basename($_SERVER['REQUEST_URI']);
 
 if (isset($_SESSION['user_id']) && $showHeader ==true) {
 
-	if(isset($_SESSION['cart'])){
-		$cartsize = sizeof($_SESSION['cart']);
+		if(isset($_SESSION['cart'])){
+
+			$cartsize = sizeof($_SESSION['cart']);
 
 	}
 
@@ -93,6 +108,7 @@ if (isset($_SESSION['user_id']) && $showHeader ==true) {
 						<ul class="dropdown">
 							<li><a href="./createclass.php"><i class="icon-user"></i>Create a class</a></li>
 							<li><a href="./managemyclasses.php"><i class="icon-user"></i>Manage classes</a></li>
+							<li><a href="./view_cart.php"><i class="icon-user"></i>View Shopping Cart</a></li>
 							<li><a href="./settings.php"><i class="icon-cog"></i>Settings</a></li>
 							<li><a href="./logout.php"><i class="icon-remove"></i>Log out</a></li>
 						</ul>
