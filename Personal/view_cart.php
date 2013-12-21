@@ -7,6 +7,7 @@
 		<div class="grid_8 offset_2">
 			<div class="order">
 			<h2>Review Your Cart</h2>
+			<?php if(isset($_SESSION['cart'])){?>
 			<table>
 				<tr>
 					<th>Class</th>
@@ -40,10 +41,18 @@
 
 			?>
 
-
+			
 			</table>
 			<div class="total">Total: $<?php echo (float)$total; ?></div>
 
+			<?php } // end is cart set?
+			else{ ?>
+				<h3>Your cart is empty</h3>
+			
+
+			<?php }
+
+			 ?>
 			</div>
 
 		</div>

@@ -20,128 +20,10 @@
 	"buffers":
 	[
 		{
-			"file": "login_functions.inc.php",
-			"settings":
-			{
-				"buffer_size": 2321,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "photos.php",
-			"settings":
-			{
-				"buffer_size": 426,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "contact.php",
-			"settings":
-			{
-				"buffer_size": 4057,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "students.php",
-			"settings":
-			{
-				"buffer_size": 6328,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "css/layout.css",
-			"settings":
-			{
-				"buffer_size": 10390,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "<?php include ('./header.php'); \n// Required Documentation\nrequire ('./mysqli_connect.php'); // Connect to the db.\nrequire ('./login_functions.inc.php'); \n\nif(($_SESSION['isAdmin'])>0){\n\n?>\n	<div class=\"row content\">\n		<div class=\"grid_12\">\n<?php \n\n// Make the query:\n$q = \"SELECT CONCAT(last_name, ', ', first_name) AS name, email AS em FROM `$tablename`.`ac2292777_contacts`\";		\n$r = @mysqli_query ($dbc, $q); // Run the query.\n\n// Count the number of returned rows:\n$num = mysqli_num_rows($r);\n\n\n?>\n<div class=\"main-title\">\n	<h1 class = \"fl_r\">There are currently <?php echo $num ?> contacts.</h1>\n	<div class=\"clear\"></div>\n</div>\n\n<?php\n\nif ($num > 0) { // If it ran OK, display the records.\n\n	// Table header.\n	echo '<table align=\"center\" cellspacing=\"3\" cellpadding=\"3\" width=\"75%\">\n	<tr><td align=\"left\"><b>Name</b></td><td align=\"left\"><b>Contact Email</b></td></tr>\n';\n	\n	// Fetch and print all the records:\n	while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {\n		echo '<tr><td align=\"left\">' . $row['name'] . '</td><td align=\"left\">' . $row['em'] . '</td></tr>\n		';\n	}\n\n	echo '</table>'; // Close the table.\n	\n	mysqli_free_result ($r); // Free up the resources.	\n\n} else { // If no records were returned.\n\n	echo '<p class=\"error\">There are currently no contacts.</p>';\n\n}\n\nmysqli_close($dbc); // Close the database connection.\n?>\n</div>\n</div>\n<?php \n}else{\n	redirect_user();\n}\n\n?>\n<?php include ('./footer.php'); ?>",
-			"file": "view_contacts.php",
-			"file_size": 1487,
-			"file_write_time": 1386671450000000,
-			"settings":
-			{
-				"buffer_size": 1428,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "header.php",
 			"settings":
 			{
-				"buffer_size": 2321,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "mysqli_connect.php",
-			"settings":
-			{
-				"buffer_size": 621,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "logout.php",
-			"settings":
-			{
-				"buffer_size": 859,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "			<div id = \"footer\" class=\"sixteen columns content clearfix\">\n				<div class=\"row\">\n		<div class=\"grid_3 offset_2 left\">\n			<h4>Issinryu Karate</h4>\n			<h4>+760 568 0961</h4>\n			<h5>Whispering Palms, Cathedral City</h5>\n		</div>\n		<div class=\"grid_2\">\n			<img src=\"./img/large_issinryu.png\" alt=\"\">\n		</div>\n		<div class=\"grid_3 right\">\n			<h5>Free Uniforms</h5>\n			<h5>Free Trial Class</h5>\n			<h5>No Contracts</h5>\n		</div>\n		\n		</div>\n	</div>\n<script type=\"text/javascript\">\n	$(document).ready(function() {\n\n	/* This is basic - uses default settings */\n	\n	$(\"a#single_image\").fancybox();\n	\n	/* Using custom settings */\n	\n	$(\"a#inline\").fancybox({\n		'hideOnContentClick': true\n	});\n\n	/* Apply fancybox to multiple items */\n	\n	$(\"a.group\").fancybox({\n		'transitionIn'	:	'elastic',\n		'transitionOut'	:	'elastic',\n		'speedIn'		:	600, \n		'speedOut'		:	200, \n		'overlayShow'	:	false\n	});\n	\n});\n\n	\n</script>	\n</body>\n</html>",
-			"file": "footer.php",
-			"file_size": 915,
-			"file_write_time": 1386672357000000,
-			"settings":
-			{
-				"buffer_size": 922,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "delete_user.php",
-			"settings":
-			{
-				"buffer_size": 2544,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "signup.php",
-			"settings":
-			{
-				"buffer_size": 5253,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "login.php",
-			"settings":
-			{
-				"buffer_size": 1214,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "edit_user.php",
-			"settings":
-			{
-				"buffer_size": 3769,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "view_users.php",
-			"settings":
-			{
-				"buffer_size": 3696,
+				"buffer_size": 2576,
 				"line_ending": "Unix"
 			}
 		}
@@ -206,6 +88,21 @@
 	},
 	"file_history":
 	[
+		"/C/xampp/htdocs/ac2292777/Karate/view_users.php",
+		"/C/xampp/htdocs/ac2292777/Karate/edit_user.php",
+		"/C/xampp/htdocs/ac2292777/Karate/login.php",
+		"/C/xampp/htdocs/ac2292777/Karate/signup.php",
+		"/C/xampp/htdocs/ac2292777/Karate/delete_user.php",
+		"/C/xampp/htdocs/ac2292777/Karate/footer.php",
+		"/C/xampp/htdocs/ac2292777/Karate/logout.php",
+		"/C/xampp/htdocs/ac2292777/Karate/css/layout.css",
+		"/C/xampp/htdocs/ac2292777/Karate/students.php",
+		"/C/xampp/htdocs/ac2292777/Karate/contact.php",
+		"/C/xampp/htdocs/ac2292777/Karate/photos.php",
+		"/C/xampp/htdocs/ac2292777/Karate/login_functions.inc.php",
+		"/C/xampp/htdocs/ac2292777/Karate/mysqli_connect.php",
+		"/C/xampp/htdocs/ac2292777/Karate/header.php",
+		"/C/xampp/htdocs/ac2292777/Karate/view_contacts.php",
 		"/Applications/AMPPS/www/ac2292777/Karate/footer.php",
 		"/Applications/AMPPS/www/ac2292777/Karate/bio.php",
 		"/Applications/AMPPS/www/ac2292777/Karate/css/layout.css",
@@ -318,22 +215,7 @@
 		"/C/Users/Albert/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/M/Web Development/footer.php",
 		"/C/Users/Albert/Downloads/ThumbnailGridExpandingPreview/ThumbnailGridExpandingPreview/index.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/snippets/AC_CH5S1.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/snippets/AC_CH5S2.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/snippets/AC_CH5S4.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/snippets/AC_CH5S5.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/snippets/AC_CH5S3.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/snippets/AC_CH5S6.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/snippets/AC_CH5S7.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/snippets/AC_CH5S8.html",
-		"/C/Users/Albert/Desktop/potrace-1.11.win64/README",
-		"/C/Users/Albert/Desktop/potrace-1.11.win64/README-WIN",
-		"/C/Users/Albert/Downloads/termsyn-1.8.7 (1)/termsyn-1.8.7/README.termsyn",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/ACarrete_JavascriptBlackJack/admin-manage.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/ACarrete_JavascriptBlackJack/start.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/ACarrete_JavascriptBlackJack/signupSuccess.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/ACarrete_JavascriptBlackJack/signup.html",
-		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/ACarrete_JavascriptBlackJack/signOutSuccess.html"
+		"/C/Users/Albert/Dropbox/root/RCC_Classes/CIS-14A-WebProgrammingJavascript/Acarrete_ProjectLinker/snippets/AC_CH5S1.html"
 	],
 	"find":
 	{
@@ -351,6 +233,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"true",
 			"right",
 			"footer",
 			"body",
@@ -413,186 +296,23 @@
 	"groups":
 	[
 		{
-			"selected": 14,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "login_functions.inc.php",
-					"settings":
-					{
-						"buffer_size": 2321,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1550,
-								1550
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 340.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "photos.php",
-					"settings":
-					{
-						"buffer_size": 426,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "contact.php",
-					"settings":
-					{
-						"buffer_size": 4057,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3160,
-								3160
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "students.php",
-					"settings":
-					{
-						"buffer_size": 6328,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								30,
-								30
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "css/layout.css",
-					"settings":
-					{
-						"buffer_size": 10390,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3546,
-								3546
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2504.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "view_contacts.php",
-					"settings":
-					{
-						"buffer_size": 1428,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								155,
-								155
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
 					"file": "header.php",
 					"settings":
 					{
-						"buffer_size": 2321,
+						"buffer_size": 2576,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1105,
-								1134
+								1267,
+								1267
 							]
 						],
 						"settings":
@@ -602,220 +322,6 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "mysqli_connect.php",
-					"settings":
-					{
-						"buffer_size": 621,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								541,
-								541
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "logout.php",
-					"settings":
-					{
-						"buffer_size": 859,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								741,
-								741
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "footer.php",
-					"settings":
-					{
-						"buffer_size": 922,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								221,
-								221
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "delete_user.php",
-					"settings":
-					{
-						"buffer_size": 2544,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								304,
-								304
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 28.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "signup.php",
-					"settings":
-					{
-						"buffer_size": 5253,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								285,
-								285
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "login.php",
-					"settings":
-					{
-						"buffer_size": 1214,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "edit_user.php",
-					"settings":
-					{
-						"buffer_size": 3769,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "view_users.php",
-					"settings":
-					{
-						"buffer_size": 3696,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2675,
-								2675
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 278.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

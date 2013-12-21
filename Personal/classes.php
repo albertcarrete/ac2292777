@@ -82,8 +82,7 @@ class Panel
 mysqli_free_result ($querySubjects);
 
 mysqli_close($dbc);
-		?>
-
+?>
 
 
 		</div>

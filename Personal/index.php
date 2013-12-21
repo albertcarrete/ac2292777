@@ -5,9 +5,7 @@ include ('./header.php');
 $ImpartPanel = new Panel; 
 
 
-// = = = = = = = = = = = = = 
-// Check for a session user
-// = = = = = = = = = = = = = 
+// Choose which dashboard to display
 
 if (isset($_SESSION['user_id'])) { 
 
